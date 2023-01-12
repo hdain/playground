@@ -7,13 +7,14 @@ const cx = classNames.bind(styles);
 const Items = [
   { label: "Home", href: "/" },
   { label: "Post", href: "/post" },
+  { label: "Login", href: "/login" },
 ];
 
 const Nav = () => (
   <nav className={cx("nav")}>
     <ul>
       {Items.map((item) => (
-        <NavItem label={item.label} href={item.href} />
+        <NavItem label={item.label} href={item.href} key={item.label} />
       ))}
     </ul>
   </nav>
