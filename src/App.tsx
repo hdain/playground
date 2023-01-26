@@ -6,6 +6,7 @@ import { AuthContext } from "./contexts/authContext";
 import { Home } from "./pages/Home";
 import { Login } from "./pages/Login";
 import { Post } from "./pages/Post";
+import ProtectedRoute from "./routes/ProtectedRoute";
 
 const App = () => {
   const user = useContext(AuthContext);
@@ -16,8 +17,15 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="post" element={<Post />} />
           <Route path="login" element={<Login />} />
+          <Route
+            path="post"
+            element={
+              <ProtectedRoute>
+                <Post />
+              </ProtectedRoute>
+            }
+          />
         </Route>
       </Routes>
     </BrowserRouter>
