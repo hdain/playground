@@ -1,15 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.scss";
 import { Layout } from "./components/Layout";
-import { auth } from "./firebase";
+import { AuthContext } from "./contexts/authContext";
 import { Home } from "./pages/Home";
 import { Login } from "./pages/Login";
 import { Post } from "./pages/Post";
 
-console.log(auth);
-
 const App = () => {
+  const user = useContext(AuthContext);
+  console.log(user);
+
   return (
     <BrowserRouter>
       <Routes>
