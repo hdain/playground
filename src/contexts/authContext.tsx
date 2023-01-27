@@ -16,10 +16,10 @@ export const AuthProvider = (props: AuthProviderProps): JSX.Element => {
     onAuthStateChanged(auth, (firebaseUser) => {
       if (firebaseUser) {
         // signed in
-        console.log(firebaseUser);
         setUser(firebaseUser);
       } else {
         // signed out
+        setUser(null);
       }
     });
   }, []);

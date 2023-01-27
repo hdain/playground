@@ -2,4 +2,12 @@
   ul {
     display: flex;
   }
+
+  button {
+    display: block;
+    padding: 0 10px;
+    background: none;
+    border: none;
+    font-size: 16px;
+  }
 }
