@@ -25,6 +25,7 @@ const LoginForm = () => {
     e.preventDefault();
     try {
       await signInWithEmailAndPassword(auth, values.email, values.password);
+      sessionStorage.setItem("email", values.email);
       navigate("/");
     } catch (error) {
       console.log(error);

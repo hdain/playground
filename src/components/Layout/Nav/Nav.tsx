@@ -16,8 +16,13 @@ const Items = [
 const Nav = () => {
   const user = useContext(AuthContext);
 
-  const handleLogout = () => {
-    signOut(auth);
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      sessionStorage.removeItem("email");
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
