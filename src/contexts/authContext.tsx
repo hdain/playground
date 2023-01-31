@@ -6,23 +6,34 @@ type AuthProviderProps = {
   children: JSX.Element | Array<JSX.Element>;
 };
 
-export const AuthContext = createContext<User | null>(null);
+export type AuthProviderValues = {
+  user: User | null;
+  isLoading: boolean;
+};
+
+export const AuthContext = createContext<AuthProviderValues>({
+  user: null,
+  isLoading: false,
+});
 
 export const AuthProvider = (props: AuthProviderProps): JSX.Element => {
   const { children } = props;
-  const [user, setUser] = useState<User | null>(null);
+  const [values, setValues] = useState<AuthProviderValues>({
+    user: null,
+    isLoading: true,
+  });
 
   useEffect(() => {
-    onAuthStateChanged(auth, (firebaseUser) => {
-      if (firebaseUser) {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
         // signed in
-        setUser(firebaseUser);
+        setValues({ user, isLoading: false });
       } else {
         // signed out
-        setUser(null);
+        setValues({ user: null, isLoading: false });
       }
     });
   }, []);
 
-  return <AuthContext.Provider value={user}>{children}</AuthContext.Provider>;
+  return <AuthContext.Provider value={values}>{children}</AuthContext.Provider>;
 };
