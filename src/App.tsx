@@ -1,11 +1,12 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.scss";
-import { Layout } from "./components/Layout";
 import { Home } from "./pages/Home";
 import { Login } from "./pages/Login";
 import { Post } from "./pages/Post";
 import { Write } from "./pages/Write";
+import { Layout } from "./components/Layout";
+import { PostDetail } from "./components/PostDetail";
 import ProtectedRoute from "./routes/ProtectedRoute";
 
 const App = () => (
@@ -15,6 +16,7 @@ const App = () => (
         <Route index element={<Home />} />
         <Route path="login" element={<Login />} />
         <Route path="post" element={<Post />} />
+        <Route path="post/:postId" element={<PostDetail />} />
         <Route
           path="write"
           element={

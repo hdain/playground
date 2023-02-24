@@ -3,17 +3,13 @@ import classNames from "classnames/bind";
 import { useEffect, useState } from "react";
 import { database } from "../../firebase";
 import { child, get, ref } from "firebase/database";
+import { Link } from "react-router-dom";
+import { Post } from "../PostDetail";
 
 const cx = classNames.bind(styles);
 
-type PostType = {
-  title: string;
-  contents: string;
-  timestamp: number;
-};
-
 type PostListType = {
-  [id: string]: PostType;
+  [id: string]: Post;
 };
 
 const PostList = () => {
@@ -22,9 +18,9 @@ const PostList = () => {
   useEffect(() => {
     const getPostList = async () => {
       try {
-        const response = await get(child(ref(database), "posts"));
-        if (response.exists()) {
-          const data = response.val();
+        const snapshot = await get(child(ref(database), "posts"));
+        if (snapshot.exists()) {
+          const data = snapshot.val();
           setPostList(data);
         } else {
           console.log("No data available");
@@ -40,12 +36,17 @@ const PostList = () => {
   return (
     <div className={cx("post-list")}>
       {postList &&
-        Object.keys(postList).map((post) => (
-          <div className={cx("post")}>
-            <h3>{postList[post].title}</h3>
-            <div>{postList[post].contents}</div>
-          </div>
-        ))}
+        Object.keys(postList).map((key) => {
+          const post = postList[key];
+          return (
+            <article key={post.title} className={cx("post-preview")}>
+              <Link to={`/post/${post.path}`}>
+                <h3>{post.title}</h3>
+                <p>{post.contents}</p>
+              </Link>
+            </article>
+          );
+        })}
     </div>
   );
 };
