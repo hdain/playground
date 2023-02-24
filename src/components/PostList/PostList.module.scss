@@ -2,7 +2,14 @@
   display: flex;
   flex-direction: column;
 
-  .post {
-    display: flex;
+  .post-preview {
+    padding: 30px 0;
+    //TODO: Set global color
+    border-top: 1px solid #e5e5e5;
+
+    h3 {
+      font-size: 24px;
+      padding-bottom: 10px;
+    }
   }
 }
