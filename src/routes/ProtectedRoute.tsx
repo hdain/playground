@@ -9,7 +9,7 @@ type ProtectedRouteProps = {
 
 const ProtectedRoute = (props: ProtectedRouteProps) => {
   const { children } = props;
-  const user = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const navigate = useNavigate();
 
   useEffect(() => {
