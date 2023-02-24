@@ -2,7 +2,7 @@ import { useState } from "react";
 import MDEditor from "@uiw/react-md-editor";
 import styles from "./Editor.module.scss";
 import classNames from "classnames/bind";
-import { ref, set, push, serverTimestamp } from "firebase/database";
+import { ref, set, serverTimestamp } from "firebase/database";
 import { database } from "../../firebase";
 import { useNavigate } from "react-router-dom";
 
@@ -20,19 +20,24 @@ const Editor = () => {
     setTitle(e.target.value);
   };
 
-  const handleBackClick = () => {
-    navigate(-1);
+  const handleBackClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions,no-restricted-globals
+    confirm("Do you really want to leave?") ? navigate(-1) : "";
   };
 
   const handleSaveClick = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
 
     try {
-      await set(push(ref(database, "posts")), {
-        title: title,
-        contents: contents,
+      await set(ref(database, "posts/" + title), {
+        title,
+        contents,
         timestamp: serverTimestamp(),
       });
+
+      alert("complete 👏");
+      navigate("/post");
     } catch (e) {
       console.error(e);
     }
