@@ -5,6 +5,7 @@ import classNames from "classnames/bind";
 import { ref, set, serverTimestamp } from "firebase/database";
 import { database } from "../../firebase";
 import { useNavigate } from "react-router-dom";
+import translatePostTitleToPath from "../../utils/translatePostTitleToPath";
 
 const cx = classNames.bind(styles);
 
@@ -30,7 +31,9 @@ const Editor = () => {
     e.preventDefault();
 
     try {
-      await set(ref(database, "posts/" + title), {
+      const path = translatePostTitleToPath(title);
+      await set(ref(database, "posts/" + path), {
+        path,
         title,
         contents,
         timestamp: serverTimestamp(),
