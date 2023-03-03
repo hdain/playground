@@ -1,51 +1,37 @@
 import styles from "./PostDetail.module.scss";
 import classNames from "classnames/bind";
-import { useNavigate, useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { child, get, ref } from "firebase/database";
-import { database } from "../../firebase";
+import { useLocation, useNavigate } from "react-router-dom";
 import MDEditor from "@uiw/react-md-editor";
+import { usePost } from "../../hooks";
 
 const cx = classNames.bind(styles);
 
-export type Post = {
-  path: string;
-  title: string;
-  contents: string;
-  timestamp: number;
-};
-
 const PostDetail = () => {
-  const { postTitle } = useParams();
   const navigate = useNavigate();
 
-  const [post, setPost] = useState<Post | undefined>(undefined);
+  const { state } = useLocation();
+  const { postKey } = state;
+  const { isLoading, post } = usePost(postKey);
 
-  useEffect(() => {
-    const getPost = async () => {
-      try {
-        const snapshot = await get(child(ref(database), `posts/${postTitle}`));
-        if (snapshot.exists()) {
-          const data = snapshot.val();
-          setPost(data);
-        } else {
-          console.log("No data available");
-        }
-      } catch (e) {
-        console.error(e);
-      }
-    };
-
-    getPost();
-  }, [postTitle]);
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <>
       {post && (
         <article className={cx("post-detail")}>
-          <div>
-            <button onClick={() => navigate(`/edit/${post.path}`)}>Edit</button>
-            <button>Delete</button>
+          <div className={cx("head")}>
+            <h1>{post.title}</h1>
+            <div>
+              <span>{post.timestamp}</span>
+              <div className={cx("button-wrap")}>
+                <button onClick={() => navigate(`/edit/${postKey}`)}>
+                  Edit
+                </button>
+                <button>Delete</button>
+              </div>
+            </div>
           </div>
           <MDEditor.Markdown source={post.contents} />
         </article>
