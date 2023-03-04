@@ -10,12 +10,13 @@ a {
   color: #000000;
 }
 
-input,
-button {
+input {
   border: 1px solid #000000;
   border-radius: 5px;
 }
 
 button {
   cursor: pointer;
+  border: none;
+  background: none;
 }
