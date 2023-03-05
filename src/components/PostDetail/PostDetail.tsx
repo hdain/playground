@@ -3,6 +3,8 @@ import classNames from "classnames/bind";
 import { useLocation, useNavigate } from "react-router-dom";
 import MDEditor from "@uiw/react-md-editor";
 import { usePost } from "../../hooks";
+import { child, ref, remove } from "firebase/database";
+import { database } from "../../firebase";
 
 const cx = classNames.bind(styles);
 
@@ -12,6 +14,18 @@ const PostDetail = () => {
   const { state } = useLocation();
   const { postKey } = state;
   const { isLoading, post } = usePost(postKey);
+
+  const handleDelete = async () => {
+    try {
+      // eslint-disable-next-line no-restricted-globals
+      if (confirm("Want to delete?")) {
+        await remove(child(ref(database), `posts/${postKey}`));
+        navigate("/post");
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  };
 
   if (isLoading) {
     return <div>Loading...</div>;
@@ -29,7 +43,7 @@ const PostDetail = () => {
                 <button onClick={() => navigate(`/edit/${postKey}`)}>
                   Edit
                 </button>
-                <button>Delete</button>
+                <button onClick={handleDelete}>Delete</button>
               </div>
             </div>
           </div>
