@@ -5,6 +5,7 @@ import MDEditor from "@uiw/react-md-editor";
 import { usePost } from "../../hooks";
 import { child, ref, remove } from "firebase/database";
 import { database } from "../../firebase";
+import { useCallback } from "react";
 
 const cx = classNames.bind(styles);
 
@@ -15,7 +16,7 @@ const PostDetail = () => {
   const { postKey } = state;
   const { isLoading, post } = usePost(postKey);
 
-  const handleDelete = async () => {
+  const handleDelete = useCallback(async () => {
     try {
       // eslint-disable-next-line no-restricted-globals
       if (confirm("Want to delete?")) {
@@ -25,7 +26,7 @@ const PostDetail = () => {
     } catch (e) {
       console.error(e);
     }
-  };
+  }, [navigate, postKey]);
 
   if (isLoading) {
     return <div>Loading...</div>;

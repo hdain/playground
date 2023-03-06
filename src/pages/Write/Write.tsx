@@ -4,11 +4,12 @@ import { child, push, ref, serverTimestamp, set } from "firebase/database";
 import { database } from "../../firebase";
 import translatePostTitleToPath from "../../utils/translatePostTitleToPath";
 import { Editor } from "../../components/Editor";
+import { useCallback } from "react";
 
 const cx = classNames.bind(styles);
 
 const Write = () => {
-  const handleCreate = async (title: string, contents?: string) => {
+  const handleCreate = useCallback(async (title: string, contents?: string) => {
     try {
       const titleToPath = translatePostTitleToPath(title);
       await set(push(child(ref(database), `posts`)), {
@@ -20,7 +21,7 @@ const Write = () => {
     } catch (e) {
       console.error(e);
     }
-  };
+  }, []);
 
   return (
     <div className={cx("write")}>

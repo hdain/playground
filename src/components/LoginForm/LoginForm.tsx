@@ -4,6 +4,7 @@ import { useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase";
 import { useNavigate } from "react-router-dom";
+import { useCallback } from "react";
 
 const cx = classNames.bind(styles);
 
@@ -21,15 +22,18 @@ const LoginForm = () => {
     });
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    try {
-      await signInWithEmailAndPassword(auth, values.email, values.password);
-      navigate("/");
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  const handleSubmit = useCallback(
+    async (e: React.FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
+      try {
+        await signInWithEmailAndPassword(auth, values.email, values.password);
+        navigate("/");
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    [navigate, values]
+  );
 
   return (
     <form className={cx("login-form")} onSubmit={handleSubmit} method="POST">

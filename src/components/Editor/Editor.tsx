@@ -4,6 +4,7 @@ import styles from "./Editor.module.scss";
 import classNames from "classnames/bind";
 import { useNavigate } from "react-router-dom";
 import { Post } from "../../hooks";
+import { useCallback } from "react";
 
 const cx = classNames.bind(styles);
 
@@ -38,22 +39,25 @@ const Editor = (props: EditorProps) => {
     navigate(-1);
   };
 
-  const handleSaveClick = async (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
+  const handleSaveClick = useCallback(
+    async (e: React.MouseEvent<HTMLButtonElement>) => {
+      e.preventDefault();
 
-    if (!title) {
-      alert("Title is required!");
-      return;
-    }
+      if (!title) {
+        alert("Title is required!");
+        return;
+      }
 
-    try {
-      await onSave(title, contents);
-      alert("complete 👏");
-      navigate("/post");
-    } catch (e) {
-      console.error(e);
-    }
-  };
+      try {
+        await onSave(title, contents);
+        alert("complete 👏");
+        navigate("/post");
+      } catch (e) {
+        console.error(e);
+      }
+    },
+    [contents, navigate, title, onSave]
+  );
 
   if (isLoading) {
     return <div>Loading...</div>;

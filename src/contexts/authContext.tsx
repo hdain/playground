@@ -24,15 +24,15 @@ export const AuthProvider = (props: AuthProviderProps): JSX.Element => {
   });
 
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
-        // signed in
         setValues({ user, isLoading: false });
       } else {
-        // signed out
         setValues({ user: null, isLoading: false });
       }
     });
+
+    return () => unsubscribe();
   }, []);
 
   return <AuthContext.Provider value={values}>{children}</AuthContext.Provider>;
