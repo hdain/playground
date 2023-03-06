@@ -18,7 +18,14 @@ const App = () => (
         <Route path="login" element={<Login />} />
         <Route path="post" element={<Post />} />
         <Route path="post/:postTitle" element={<PostDetail />} />
-        <Route path="edit/:postKey" element={<Edit />} />
+        <Route
+          path="edit/:postKey"
+          element={
+            <ProtectedRoute>
+              <Edit />
+            </ProtectedRoute>
+          }
+        />
         <Route
           path="write"
           element={

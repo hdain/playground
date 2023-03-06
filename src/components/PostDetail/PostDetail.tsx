@@ -6,12 +6,15 @@ import { usePost } from "../../hooks";
 import { child, ref, remove } from "firebase/database";
 import { database } from "../../firebase";
 import { useCallback } from "react";
+import { useContext } from "react";
+import { AuthContext } from "../../contexts/authContext";
 
 const cx = classNames.bind(styles);
 
 const PostDetail = () => {
   const navigate = useNavigate();
 
+  const { user } = useContext(AuthContext);
   const { state } = useLocation();
   const { postKey } = state;
   const { isLoading, post } = usePost(postKey);
@@ -40,12 +43,14 @@ const PostDetail = () => {
             <h1>{post.title}</h1>
             <div>
               <span>{post.timestamp}</span>
-              <div className={cx("button-wrap")}>
-                <button onClick={() => navigate(`/edit/${postKey}`)}>
-                  Edit
-                </button>
-                <button onClick={handleDelete}>Delete</button>
-              </div>
+              {user && (
+                <div className={cx("button-wrap")}>
+                  <button onClick={() => navigate(`/edit/${postKey}`)}>
+                    Edit
+                  </button>
+                  <button onClick={handleDelete}>Delete</button>
+                </div>
+              )}
             </div>
           </div>
           <MDEditor.Markdown source={post.contents} />
