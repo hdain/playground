@@ -16,16 +16,18 @@ const PostList = () => {
 
   return (
     <div className={cx("post-list")}>
-      {Object.keys(postList).map((key) => {
-        const post = postList[key];
-        return (
-          <Fragment key={key}>
-            <Link to={`/post/${post.path}`} state={{ postKey: key }}>
-              <PostPreview title={post.title} contents={post.contents} />
-            </Link>
-          </Fragment>
-        );
-      })}
+      {Object.keys(postList)
+        .reverse()
+        .map((key) => {
+          const post = postList[key];
+          return (
+            <Fragment key={key}>
+              <Link to={`/post/${post.path}`} state={{ postKey: key }}>
+                <PostPreview title={post.title} contents={post.contents} />
+              </Link>
+            </Fragment>
+          );
+        })}
     </div>
   );
 };

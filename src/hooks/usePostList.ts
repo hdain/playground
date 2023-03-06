@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { get, ref } from "firebase/database";
+import { get, orderByKey, query, ref } from "firebase/database";
 import { database } from "../firebase";
 import { Post } from "./usePost";
 
@@ -16,7 +16,7 @@ export const usePostList = () => {
       setIsLoading(true);
 
       try {
-        const snapshot = await get(ref(database, "posts"));
+        const snapshot = await get(query(ref(database, "posts"), orderByKey()));
         if (snapshot.exists()) {
           const data = snapshot.val();
           setPostList(data);
