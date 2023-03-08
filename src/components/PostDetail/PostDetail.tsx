@@ -8,6 +8,7 @@ import { database } from "../../firebase";
 import { useCallback } from "react";
 import { useContext } from "react";
 import { AuthContext } from "../../contexts/authContext";
+import { dateFormat } from "../../utils";
 
 const cx = classNames.bind(styles);
 
@@ -41,7 +42,7 @@ const PostDetail = () => {
           <div className={cx("head")}>
             <h1>{post.title}</h1>
             <div>
-              <span>{post.timestamp}</span>
+              <span>{dateFormat(post.timestamp)}</span>
               {user && (
                 <div className={cx("button-wrap")}>
                   <button onClick={() => navigate(`/edit/${slug}`)}>
