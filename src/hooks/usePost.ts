@@ -3,13 +3,13 @@ import { child, get, ref } from "firebase/database";
 import { database } from "../firebase";
 
 export type Post = {
-  path: string;
+  slug: string;
   title: string;
   contents: string;
   timestamp: number;
 };
 
-export const usePost = (postKey: string | undefined) => {
+export const usePost = (slug: string | undefined) => {
   const [isLoading, setIsLoading] = useState(false);
   const [post, setPost] = useState<Post>();
 
@@ -18,10 +18,13 @@ export const usePost = (postKey: string | undefined) => {
       setIsLoading(true);
 
       try {
-        const snapshot = await get(child(ref(database), `posts/${postKey}`));
+        const snapshot = await get(child(ref(database), `posts`));
         if (snapshot.exists()) {
-          const data = snapshot.val();
-          setPost(data);
+          snapshot.forEach((data) => {
+            if (data.val().slug === slug) {
+              setPost(data.val());
+            }
+          });
           setIsLoading(false);
         } else {
           console.log("No data available");
@@ -34,7 +37,7 @@ export const usePost = (postKey: string | undefined) => {
     };
 
     getPost?.();
-  }, [postKey]);
+  }, [slug]);
 
   return { isLoading, post };
 };

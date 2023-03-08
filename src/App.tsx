@@ -17,7 +17,7 @@ const App = () => (
         <Route index element={<Home />} />
         <Route path="login" element={<Login />} />
         <Route path="post" element={<Post />} />
-        <Route path="post/:postTitle" element={<PostDetail />} />
+        <Route path="post/:slug" element={<PostDetail />} />
         <Route
           path="edit/:postKey"
           element={

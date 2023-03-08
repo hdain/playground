@@ -4,9 +4,9 @@ import { useParams } from "react-router-dom";
 import { child, ref, update } from "firebase/database";
 import { database } from "../../firebase";
 import { usePost } from "../../hooks";
-import translatePostTitleToPath from "../../utils/translatePostTitleToPath";
 import { Editor } from "../../components/Editor";
 import { useCallback } from "react";
+import { slugify } from "../../utils";
 
 const cx = classNames.bind(styles);
 
@@ -17,9 +17,9 @@ const Edit = () => {
   const handleUpdate = useCallback(
     async (title: string, contents?: string) => {
       try {
-        const titleToPath = translatePostTitleToPath(title);
+        const path = slugify(title);
         await update(child(ref(database), `posts/${postKey}`), {
-          path: titleToPath,
+          path,
           title,
           contents,
         });
