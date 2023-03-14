@@ -7,13 +7,17 @@
   justify-content: center;
   z-index: 10;
   background: #ffffff;
-}
 
-.inner {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  max-width: 80vw;
-  padding: 20px 0;
+  .inner {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 80vw;
+    padding: 20px 0;
+
+    h1 {
+      font-size: 16px;
+    }
+  }
 }
