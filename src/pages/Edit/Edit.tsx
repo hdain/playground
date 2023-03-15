@@ -11,15 +11,15 @@ import { slugify } from "../../utils";
 const cx = classNames.bind(styles);
 
 const Edit = () => {
-  const { postKey } = useParams();
-  const { isLoading, post } = usePost(postKey);
+  const { timestamp } = useParams();
+  const { isLoading, post, key } = usePost(Number(timestamp));
 
   const handleUpdate = useCallback(
     async (title: string, contents?: string) => {
       try {
-        const path = slugify(title);
-        await update(child(ref(database), `posts/${postKey}`), {
-          path,
+        const slug = slugify(title);
+        await update(child(ref(database), `posts/${key}`), {
+          slug,
           title,
           contents,
         });
@@ -27,7 +27,7 @@ const Edit = () => {
         console.error(e);
       }
     },
-    [postKey]
+    [key]
   );
 
   return (

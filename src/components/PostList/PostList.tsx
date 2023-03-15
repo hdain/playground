@@ -22,7 +22,7 @@ const PostList = () => {
           const post = postList[key];
           return (
             <Fragment key={key}>
-              <Link to={`/post/${post.slug}`}>
+              <Link to={`/post/${post.slug}`} state={post.timestamp}>
                 <PostPreview title={post.title} contents={post.contents} />
               </Link>
             </Fragment>

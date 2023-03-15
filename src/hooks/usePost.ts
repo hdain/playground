@@ -9,9 +9,10 @@ export type Post = {
   timestamp: number;
 };
 
-export const usePost = (slug: string | undefined) => {
+export const usePost = (timestamp: number | undefined) => {
   const [isLoading, setIsLoading] = useState(false);
   const [post, setPost] = useState<Post>();
+  const [key, setKey] = useState<String | null>(null);
 
   useEffect(() => {
     const getPost = async () => {
@@ -21,8 +22,9 @@ export const usePost = (slug: string | undefined) => {
         const snapshot = await get(child(ref(database), `posts`));
         if (snapshot.exists()) {
           snapshot.forEach((data) => {
-            if (data.val().slug === slug) {
+            if (data.val().timestamp === timestamp) {
               setPost(data.val());
+              setKey(data.key);
             }
           });
           setIsLoading(false);
@@ -37,7 +39,7 @@ export const usePost = (slug: string | undefined) => {
     };
 
     getPost?.();
-  }, [slug]);
+  }, [timestamp]);
 
-  return { isLoading, post };
+  return { isLoading, post, key };
 };

@@ -19,7 +19,7 @@ const App = () => (
         <Route path="post" element={<Post />} />
         <Route path="post/:slug" element={<PostDetail />} />
         <Route
-          path="edit/:postKey"
+          path="edit/:timestamp"
           element={
             <ProtectedRoute>
               <Edit />
