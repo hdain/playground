@@ -5,8 +5,10 @@ import classNames from "classnames/bind";
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { Post } from "../../hooks";
+import { TitleInput } from "./TitleInput";
 import { TagInput } from "./TagInput";
 import { TagList } from "../TagList";
+import { ButtonGroup } from "./ButtonGroup";
 
 const cx = classNames.bind(styles);
 
@@ -82,16 +84,9 @@ const Editor = (props: EditorProps) => {
 
   return (
     <div className={cx("editor")}>
-      <div className={cx("title")}>
-        <input
-          type="text"
-          placeholder="Title..."
-          value={title}
-          onChange={handleTitleChange}
-        />
-      </div>
+      <TitleInput title={title} handleChange={handleTitleChange} />
 
-      <div className={cx("tag-wrap")}>
+      <div className={cx("tag-group")}>
         <TagList tags={tags} />
         <TagInput tagRef={tagRef} handleKeyPress={handleTagKeyPress} />
       </div>
@@ -103,10 +98,10 @@ const Editor = (props: EditorProps) => {
         style={{ flex: 1, boxShadow: "none" }}
       />
 
-      <div className={cx("button-wrap")}>
-        <button onClick={handleBackClick}>back</button>
-        <button onClick={handleSaveClick}>save</button>
-      </div>
+      <ButtonGroup
+        handleBackClick={handleBackClick}
+        handleSaveClick={handleSaveClick}
+      />
     </div>
   );
 };
