@@ -20,3 +20,15 @@ button {
   border: none;
   background: none;
 }
+
+.w-md-editor-toolbar {
+  padding: 0 48px !important;
+  border-bottom: none !important;
+}
+.w-md-editor-text {
+  padding: 48px 48px 128px !important;
+}
+.w-md-editor-preview {
+  padding: 48px !important;
+  box-shadow: inset 1px 0 0 0 #e5e5e5 !important;
+}
