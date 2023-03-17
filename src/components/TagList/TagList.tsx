@@ -3,7 +3,7 @@ import classNames from "classnames/bind";
 
 const cx = classNames.bind(styles);
 
-type TagListProps = {
+export type TagListProps = {
   tags: Array<string>;
 };
 
@@ -12,7 +12,7 @@ const TagList = (props: TagListProps) => {
 
   return (
     <div className={cx("tag-list")}>
-      {tags.map((tag) => (
+      {tags?.map((tag) => (
         <span key={tag}>{tag}</span>
       ))}
     </div>

@@ -1,12 +1,14 @@
 import { useEffect, useRef, useState } from "react";
-import MDEditor from "@uiw/react-md-editor";
 import styles from "./Editor.module.scss";
 import classNames from "classnames/bind";
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { Post } from "../../hooks";
-import { TagInput } from "./TagInput";
-import { TagList } from "../TagList";
+import { TitleInput } from "./TitleInput";
+import { ButtonGroup } from "./ButtonGroup";
+import { TagGroup } from "./TagGroup";
+import { MdEditor } from "./MdEditor";
+import { TagListProps } from "../TagList";
 
 const cx = classNames.bind(styles);
 
@@ -22,7 +24,7 @@ const Editor = (props: EditorProps) => {
   const navigate = useNavigate();
 
   const [title, setTitle] = useState<string>("");
-  const [tags, setTags] = useState<Array<string>>([]);
+  const [tags, setTags] = useState<TagListProps["tags"]>([]);
   const [contents, setContents] = useState<string | undefined>("");
 
   const tagRef = useRef<HTMLInputElement>(null);
@@ -82,31 +84,16 @@ const Editor = (props: EditorProps) => {
 
   return (
     <div className={cx("editor")}>
-      <div className={cx("title")}>
-        <input
-          type="text"
-          placeholder="Title..."
-          value={title}
-          onChange={handleTitleChange}
-        />
-      </div>
+      <TitleInput title={title} onChange={handleTitleChange} />
 
-      <div className={cx("tag-wrap")}>
-        <TagList tags={tags} />
-        <TagInput tagRef={tagRef} handleKeyPress={handleTagKeyPress} />
-      </div>
+      <TagGroup tags={tags} tagRef={tagRef} onKeyPress={handleTagKeyPress} />
 
-      <MDEditor
-        value={contents}
-        onChange={setContents}
-        extraCommands={[]}
-        style={{ flex: 1, boxShadow: "none" }}
+      <MdEditor value={contents} onChange={setContents} />
+
+      <ButtonGroup
+        onBackClick={handleBackClick}
+        onSaveClick={handleSaveClick}
       />
-
-      <div className={cx("button-wrap")}>
-        <button onClick={handleBackClick}>back</button>
-        <button onClick={handleSaveClick}>save</button>
-      </div>
     </div>
   );
 };
