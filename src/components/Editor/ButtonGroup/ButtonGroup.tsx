@@ -4,17 +4,17 @@ import classNames from "classnames/bind";
 const cx = classNames.bind(styles);
 
 type ButtonGroupProps = {
-  handleBackClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
-  handleSaveClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  onBackClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  onSaveClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
 };
 
 const ButtonGroup = (props: ButtonGroupProps) => {
-  const { handleBackClick, handleSaveClick } = props;
+  const { onBackClick, onSaveClick } = props;
 
   return (
     <div className={cx("button-group")}>
-      <button onClick={handleBackClick}>back</button>
-      <button onClick={handleSaveClick}>save</button>
+      <button onClick={onBackClick}>back</button>
+      <button onClick={onSaveClick}>save</button>
     </div>
   );
 };

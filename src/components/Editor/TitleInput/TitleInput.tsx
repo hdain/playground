@@ -5,11 +5,11 @@ const cx = classNames.bind(styles);
 
 type TitleInputProps = {
   title: string;
-  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 const TitleInput = (props: TitleInputProps) => {
-  const { title, handleChange } = props;
+  const { title, onChange } = props;
 
   return (
     <div className={cx("title-input")}>
@@ -17,7 +17,7 @@ const TitleInput = (props: TitleInputProps) => {
         type="text"
         placeholder="Write a title"
         value={title}
-        onChange={handleChange}
+        onChange={onChange}
       />
     </div>
   );

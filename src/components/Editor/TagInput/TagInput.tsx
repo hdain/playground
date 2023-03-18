@@ -5,11 +5,11 @@ const cx = classNames.bind(styles);
 
 type TagInputProps = {
   tagRef: React.LegacyRef<HTMLInputElement>;
-  handleKeyPress: (e: React.KeyboardEvent<HTMLInputElement>) => void;
+  onKeyPress: (e: React.KeyboardEvent<HTMLInputElement>) => void;
 };
 
 const TagInput = (props: TagInputProps) => {
-  const { tagRef, handleKeyPress } = props;
+  const { tagRef, onKeyPress } = props;
 
   return (
     <div className={cx("tag-input")}>
@@ -17,7 +17,7 @@ const TagInput = (props: TagInputProps) => {
         type="text"
         placeholder="Write a tag"
         ref={tagRef}
-        onKeyPress={handleKeyPress}
+        onKeyPress={onKeyPress}
       />
     </div>
   );
