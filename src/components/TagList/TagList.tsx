@@ -9,10 +9,11 @@ export type TagListProps = {
 
 const TagList = (props: TagListProps) => {
   const { tags } = props;
+  const uniqueTags = [...new Set(tags)];
 
   return (
     <div className={cx("tag-list")}>
-      {tags?.map((tag) => (
+      {uniqueTags?.map((tag) => (
         <span key={tag}>{tag}</span>
       ))}
     </div>
