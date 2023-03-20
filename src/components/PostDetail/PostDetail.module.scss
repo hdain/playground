@@ -7,14 +7,17 @@
 
   .head {
     h1 {
-      font-size: 34px;
-      padding-bottom: 30px;
+      font-size: 48px;
+      padding-bottom: 10px;
     }
 
     > div {
-      display: flex;
-      justify-content: space-between;
       padding-bottom: 40px;
+
+      &:last-child {
+        display: flex;
+        justify-content: space-between;
+      }
 
       .button-wrap {
         button {
