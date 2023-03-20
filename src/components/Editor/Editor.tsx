@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useReducer, useRef } from "react";
 import styles from "./Editor.module.scss";
 import classNames from "classnames/bind";
 import { useCallback } from "react";
@@ -8,42 +8,55 @@ import { TitleInput } from "./TitleInput";
 import { ButtonGroup } from "./ButtonGroup";
 import { TagGroup } from "./TagGroup";
 import { MdEditor } from "./MdEditor";
-import { TagListProps } from "../TagList";
+import { ContextStore } from "@uiw/react-md-editor/src/Context";
 
 const cx = classNames.bind(styles);
 
-type EditorProps = {
+export type SaveItems = Pick<Post, "title" | "tags" | "contents">;
+
+export type EditorProps = {
   isLoading?: boolean;
   post?: Post;
-  onSave: (title: string, contents?: string) => Promise<void>;
+  onSave: (items: SaveItems) => Promise<void>;
 };
 
 const Editor = (props: EditorProps) => {
   const { isLoading, post, onSave } = props;
 
   const navigate = useNavigate();
-
-  const [title, setTitle] = useState<string>("");
-  const [tags, setTags] = useState<TagListProps["tags"]>([]);
-  const [contents, setContents] = useState<string | undefined>("");
-
   const tagRef = useRef<HTMLInputElement>(null);
+
+  const [items, updateItems] = useReducer(
+    (data: SaveItems, partialData: Partial<SaveItems>) => ({
+      ...data,
+      ...partialData,
+    }),
+    { title: "", tags: [], contents: "" }
+  );
+  const { title, tags, contents } = items;
 
   useEffect(() => {
     if (post) {
-      setTitle(post.title);
-      setContents(post.contents);
+      updateItems({ ...post });
     }
   }, [post]);
 
   const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setTitle(e.target.value);
+    updateItems({ title: e.target.value });
+  };
+
+  const handleContentsChange = (
+    value?: string,
+    e?: React.ChangeEvent<HTMLTextAreaElement>,
+    state?: ContextStore
+  ) => {
+    updateItems({ contents: e?.target.value });
   };
 
   const handleTagKeyPress = useCallback(
     (e: React.KeyboardEvent<HTMLInputElement>) => {
       if (e.key === "Enter" && tagRef.current?.value) {
-        setTags([...tags, tagRef.current.value]);
+        updateItems({ tags: [...tags, tagRef.current.value] });
         tagRef.current.value = "";
       }
     },
@@ -62,20 +75,20 @@ const Editor = (props: EditorProps) => {
     async (e: React.MouseEvent<HTMLButtonElement>) => {
       e.preventDefault();
 
-      if (!title) {
+      if (!items.title) {
         alert("Title is required!");
         return;
       }
 
       try {
-        await onSave(title, contents);
+        await onSave({ ...items });
         alert("complete 👏");
         navigate("/post");
       } catch (e) {
         console.error(e);
       }
     },
-    [contents, navigate, title, onSave]
+    [items, navigate, onSave]
   );
 
   if (isLoading) {
@@ -88,7 +101,7 @@ const Editor = (props: EditorProps) => {
 
       <TagGroup tags={tags} tagRef={tagRef} onKeyPress={handleTagKeyPress} />
 
-      <MdEditor value={contents} onChange={setContents} />
+      <MdEditor value={contents} onChange={handleContentsChange} />
 
       <ButtonGroup
         onBackClick={handleBackClick}

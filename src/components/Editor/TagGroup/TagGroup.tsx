@@ -1,15 +1,11 @@
 import styles from "./TagGroup.module.scss";
 import classNames from "classnames/bind";
-import { TagList } from "../../TagList";
-import { TagInput } from "../TagInput";
+import { TagList, TagListProps } from "../../TagList";
+import { TagInput, TagInputProps } from "../TagInput";
 
 const cx = classNames.bind(styles);
 
-type TagGroupProps = {
-  tags: Array<string>;
-  tagRef: React.LegacyRef<HTMLInputElement>;
-  onKeyPress: (e: React.KeyboardEvent<HTMLInputElement>) => void;
-};
+type TagGroupProps = TagListProps & TagInputProps;
 
 const TagGroup = (props: TagGroupProps) => {
   const { tags, tagRef, onKeyPress } = props;

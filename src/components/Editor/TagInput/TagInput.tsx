@@ -3,7 +3,7 @@ import classNames from "classnames/bind";
 
 const cx = classNames.bind(styles);
 
-type TagInputProps = {
+export type TagInputProps = {
   tagRef: React.LegacyRef<HTMLInputElement>;
   onKeyPress: (e: React.KeyboardEvent<HTMLInputElement>) => void;
 };
