@@ -1,11 +1,10 @@
 import styles from "./TagList.module.scss";
 import classNames from "classnames/bind";
+import { Post } from "../../hooks";
 
 const cx = classNames.bind(styles);
 
-export type TagListProps = {
-  tags: Array<string>;
-};
+export type TagListProps = Pick<Post, "tags">;
 
 const TagList = (props: TagListProps) => {
   const { tags } = props;
