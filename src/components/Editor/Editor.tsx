@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer, useRef } from "react";
+import { useEffect, useReducer, useRef } from "react";
 import styles from "./Editor.module.scss";
 import classNames from "classnames/bind";
 import { useCallback } from "react";

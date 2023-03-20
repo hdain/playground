@@ -5,11 +5,12 @@ import { database } from "../firebase";
 export type Post = {
   slug: string;
   title: string;
+  tags: Array<string>;
   contents: string;
   timestamp: number;
 };
 
-export const usePost = (timestamp: number | undefined) => {
+export const usePost = (timestamp: number) => {
   const [isLoading, setIsLoading] = useState(false);
   const [post, setPost] = useState<Post>();
   const [key, setKey] = useState<String | null>(null);
