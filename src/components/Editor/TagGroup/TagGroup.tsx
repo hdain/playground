@@ -8,11 +8,11 @@ const cx = classNames.bind(styles);
 type TagGroupProps = TagListProps & TagInputProps;
 
 const TagGroup = (props: TagGroupProps) => {
-  const { tags, tagRef, onKeyPress } = props;
+  const { tags, tagRef, onKeyPress, onClick } = props;
 
   return (
     <div className={cx("tag-group")}>
-      <TagList tags={tags} />
+      <TagList tags={tags} onClick={onClick} />
       <TagInput tagRef={tagRef} onKeyPress={onKeyPress} />
     </div>
   );

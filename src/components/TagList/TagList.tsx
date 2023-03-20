@@ -4,16 +4,20 @@ import { Post } from "../../hooks";
 
 const cx = classNames.bind(styles);
 
-export type TagListProps = Pick<Post, "tags">;
+export type TagListProps = Pick<Post, "tags"> & {
+  onClick?: (tag: React.MouseEvent<HTMLSpanElement>) => void;
+};
 
 const TagList = (props: TagListProps) => {
-  const { tags } = props;
+  const { tags, onClick } = props;
   const uniqueTags = [...new Set(tags)];
 
   return (
     <div className={cx("tag-list")}>
       {uniqueTags?.map((tag) => (
-        <span key={tag}>{tag}</span>
+        <span key={tag} onClick={onClick}>
+          {tag}
+        </span>
       ))}
     </div>
   );

@@ -63,6 +63,16 @@ const Editor = (props: EditorProps) => {
     [tags]
   );
 
+  const handleTagClick = useCallback(
+    (selectTag: React.MouseEvent<HTMLSpanElement>) => {
+      const updateTags = tags.filter(
+        (tag) => tag !== selectTag.currentTarget.innerHTML
+      );
+      updateItems({ tags: updateTags });
+    },
+    [tags]
+  );
+
   const handleBackClick = useCallback(
     (e: React.MouseEvent<HTMLButtonElement>) => {
       e.preventDefault();
@@ -98,11 +108,13 @@ const Editor = (props: EditorProps) => {
   return (
     <div className={cx("editor")}>
       <TitleInput title={title} onChange={handleTitleChange} />
-
-      <TagGroup tags={tags} tagRef={tagRef} onKeyPress={handleTagKeyPress} />
-
+      <TagGroup
+        tags={tags}
+        tagRef={tagRef}
+        onKeyPress={handleTagKeyPress}
+        onClick={handleTagClick}
+      />
       <MdEditor value={contents} onChange={handleContentsChange} />
-
       <ButtonGroup
         onBackClick={handleBackClick}
         onSaveClick={handleSaveClick}
