@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { child, ref, update } from "firebase/database";
 import { database } from "../../firebase";
 import { Post, usePost } from "../../hooks";
-import { Editor } from "../../components/Editor";
+import { Editor } from "../../components";
 import { useCallback } from "react";
 import { slugify } from "../../utils";
 

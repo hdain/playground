@@ -1,9 +1,9 @@
 import classNames from "classnames/bind";
 import styles from "./Post.module.scss";
-import { PostList } from "../../components/PostList";
+import { PostList } from "../../components";
 import { NavLink } from "react-router-dom";
 import { useContext } from "react";
-import { AuthContext } from "../../contexts/authContext";
+import { AuthContext } from "../../contexts";
 
 const cx = classNames.bind(styles);
 

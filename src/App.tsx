@@ -1,14 +1,9 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.scss";
-import { Home } from "./pages/Home";
-import { Login } from "./pages/Login";
-import { Post } from "./pages/Post";
-import { Write } from "./pages/Write";
-import { Edit } from "./pages/Edit";
-import { Layout } from "./components/Layout";
-import { PostDetail } from "./components/PostDetail";
-import ProtectedRoute from "./routes/ProtectedRoute";
+import { Home, Login, Post, Write, Edit } from "./pages";
+import { Layout, PostDetail } from "./components";
+import { ProtectedRoute } from "./routes";
 
 const App = () => (
   <BrowserRouter>
@@ -19,18 +14,18 @@ const App = () => (
         <Route path="post" element={<Post />} />
         <Route path="post/:slug" element={<PostDetail />} />
         <Route
-          path="edit/:timestamp"
-          element={
-            <ProtectedRoute>
-              <Edit />
-            </ProtectedRoute>
-          }
-        />
-        <Route
           path="write"
           element={
             <ProtectedRoute>
               <Write />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="edit/:timestamp"
+          element={
+            <ProtectedRoute>
+              <Edit />
             </ProtectedRoute>
           }
         />

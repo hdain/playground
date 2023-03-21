@@ -1,6 +1,6 @@
 import styles from "./PostPreview.module.scss";
 import classNames from "classnames/bind";
-import { Post } from "../../hooks";
+import { Post } from "../../../hooks";
 
 const cx = classNames.bind(styles);
 

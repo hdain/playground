@@ -3,7 +3,7 @@ import classNames from "classnames/bind";
 import { useCallback } from "react";
 import { child, push, ref, serverTimestamp, set } from "firebase/database";
 import { database } from "../../firebase";
-import { Editor, SaveItems } from "../../components/Editor";
+import { Editor, SaveItems } from "../../components";
 import { slugify } from "../../utils";
 
 const cx = classNames.bind(styles);

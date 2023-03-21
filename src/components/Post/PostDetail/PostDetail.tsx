@@ -3,12 +3,12 @@ import classNames from "classnames/bind";
 import { useCallback, useContext } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import MDEditor from "@uiw/react-md-editor";
-import { TagList } from "../TagList";
-import { usePost } from "../../hooks";
+import { TagList } from "../../TagList";
+import { usePost } from "../../../hooks";
 import { child, ref, remove } from "firebase/database";
-import { database } from "../../firebase";
-import { AuthContext } from "../../contexts";
-import { dateFormat } from "../../utils";
+import { database } from "../../../firebase";
+import { AuthContext } from "../../../contexts";
+import { dateFormat } from "../../../utils";
 
 const cx = classNames.bind(styles);
 

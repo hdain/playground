@@ -2,7 +2,7 @@ import styles from "./Nav.module.scss";
 import classNames from "classnames/bind";
 import { NavItem } from "../NavItem";
 import { useContext } from "react";
-import { AuthContext } from "../../../contexts/authContext";
+import { AuthContext } from "../../../contexts";
 import { signOut } from "firebase/auth";
 import { auth } from "../../../firebase";
 
