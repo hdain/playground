@@ -1,46 +1,60 @@
-# Getting Started with Create React App
+# Playground 😎
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a personal blog and portfolio project built with React and Firebase.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+### Demo
+preparing...
 
-### `npm start`
+### Technologies Used
+- Yarn
+- React
+- Firebase
+    - Firebase Authentication
+    - Firebase Realtime Database
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Getting Started
+Installing
+1. Clone this repository
+```
+git clone https://github.com/dain9812/playground.git
+```
+2. Install dependencies
+```
+yarn install
+```
+3. Create a [Firebase](https://firebase.google.com/?hl=ko) project and enable Realtime database and Authentication.
+4. Create a `.env` file in the root directory of the project with your Firebase project credentials. Your `.env` file should look like this:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+```text
+REACT_APP_FIREBASE_API_KEY=your-api-key
+REACT_APP_FIREBASE_AUTH_DOMAIN=your-auth-domain
+REACT_APP_FIREBASE_DATABASE_URL=your-database-url
+REACT_APP_FIREBASE_PROJECT_ID=your-project-id
+REACT_APP_FIREBASE_STORAGE_BUCKET=your-storage-bucket
+REACT_APP_FIREBASE_MESSAGING_SENDER_ID=your-messaging-sender-id
+REACT_APP_FIREBASE_APP_ID=your-app-id
+```
+5. Start the development server
+```
+yarn start
+```
+6. Open http://localhost:3000 in your browser.
+7. Post creation, editing, and deletion are only available after logging in through the URL path `/login` (e.g. http://localhost:3000/login).
 
-### `npm test`
+⚠️ This project has a Firebase security rule that prevents users who are not logged in from performing write, edit, or delete operations on posts.
+```json
+{
+  "rules": {
+     ".read": true,
+    ".write": "auth.uid !== null"
+   }
+}
+```
+### Deployment
+The website can be deployed using platforms such as Firebase Hosting, Netlify, or GitHub Pages.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### License
+This project is licensed under the MIT License.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
