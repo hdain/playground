@@ -1,46 +1,43 @@
-# Getting Started with Create React App
+# Playground 😎
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+개인 블로그 프로젝트 겸 놀이터 ❓
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+### Technologies Used
+- React (CRA)
+- Firebase (Realtime database and Authentication)
 
-### `npm start`
+### Getting Started
+Prerequisites
+- Node.js
+- yarn
+- Firebase project with Firestore and Authentication set up
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Installing
+1. repository 를 클론해주세요.
+2. `yarn` 을 실행해 필요한 dependencies를 설치해주세요. 
+3. [Firebase](https://firebase.google.com/?hl=ko) project 를 생성하고  Realtime database 와 Authentication 를 설정해주세요.
+4. 프로젝트의 최상위 루트에 `.env` 파일을 생성하고 개인의 SDK 설정 및 구성에 맞게 다음과 같이 파일을 작성해주세요.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+```text
+REACT_APP_FIREBASE_API_KEY=your-api-key
+REACT_APP_FIREBASE_AUTH_DOMAIN=your-auth-domain
+REACT_APP_FIREBASE_DATABASE_URL=your-database-url
+REACT_APP_FIREBASE_PROJECT_ID=your-project-id
+REACT_APP_FIREBASE_STORAGE_BUCKET=your-storage-bucket
+REACT_APP_FIREBASE_MESSAGING_SENDER_ID=your-messaging-sender-id
+REACT_APP_FIREBASE_APP_ID=your-app-id
+```
+5. `yarn start` 을 통해 프로젝트를 실행해주세요.
+6. 포스트 작성(Write), 수정(Edit), 삭제(Delete)는 url path 를 `/login` (ex. `http://localhost:3000/login`) 을 통해 로그인 후 가능합니다.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+⚠️ 본 프로젝트는 로그인을 하지 않을 시 포스트 작성(Write), 수정(Edit), 삭제(Delete) 는 불가능하게 설정("rules")이 되어있습니다.
+```json
+{
+  "rules": {
+     ".read": true,
+    ".write": "auth.uid !== null"
+   }
+}
+```
