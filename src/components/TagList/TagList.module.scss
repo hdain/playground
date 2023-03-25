@@ -3,7 +3,8 @@
 
   span {
     padding: 5px 15px;
-    background: #e5e5e5;
+    background: var(--color-tag-background);
+    color: var(--color-text);
     margin-right: 8px;
     border-radius: 30px;
     font-size: 14px;

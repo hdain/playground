@@ -1,7 +1,6 @@
 .post-preview {
   padding: 30px 0;
-  //TODO: Set global color
-  border-top: 1px solid #e5e5e5;
+  border-top: 1px solid var(--color-border);
 
   h3 {
     font-size: 24px;

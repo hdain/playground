@@ -6,7 +6,7 @@
   display: flex;
   justify-content: center;
   z-index: 10;
-  background: #ffffff;
+  background: var(--color-background);
 
   .inner {
     flex: 1;
@@ -15,6 +15,11 @@
     justify-content: space-between;
     max-width: 80vw;
     padding: 20px 0;
+
+    > div {
+      display: flex;
+      align-items: center;
+    }
 
     h1 {
       font-size: 16px;

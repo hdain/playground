@@ -2,7 +2,8 @@
   padding: 80px 0;
   display: flex;
   justify-content: center;
-  height: 100vh;
+  min-height: 100vh;
+  background: var(--color-background);
 
   > * {
     width: 768px;

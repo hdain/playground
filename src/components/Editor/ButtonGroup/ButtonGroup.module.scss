@@ -1,7 +1,7 @@
 .button-group {
   position: fixed;
-  background: #ffffff;
-  border-top: 1px solid #e5e5e5;
+  background: var(--color-background-muted);
+  border-top: 1px solid var(--color-border);
   bottom: 0;
   left: 0;
   width: 50%;

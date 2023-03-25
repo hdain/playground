@@ -6,3 +6,4 @@ export * from "./Post/PostDetail";
 export * from "./Post/PostList";
 export * from "./Post/PostPreview";
 export * from "./TagList";
+export * from "./ThemeToggle";
