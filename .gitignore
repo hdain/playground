@@ -1,6 +1,12 @@
 # Created by https://www.toptal.com/developers/gitignore/api/webstorm,react,macos
 # Edit at https://www.toptal.com/developers/gitignore?templates=webstorm,react,macos
 
+### ignore all files in the build/ directory ###
+build/
+
+### firebase ###
+.firebase/
+
 ### env ###
 .env
 
