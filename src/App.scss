@@ -1,27 +1,54 @@
+[data-color-mode="light"] {
+  --color-text: #000000;
+  --color-border: #e5e5e5;
+  --color-background: #ffffff;
+  --color-background-muted: #e5e5e5;
+  --color-button-text: #ffffff;
+  --color-button-background: #000000;
+  --color-tag-text: #000000;
+  --color-tag-background: #e5e5e5;
+}
+
+[data-color-mode="dark"] {
+  --color-text: #ececec;
+  --color-border: #21262d;
+  --color-background: #000000;
+  --color-background-muted: #21262d;
+  --color-button-text: #000000;
+  --color-button-background: #ffffff;
+  --color-tag-text: #ffffff;
+  --color-tag-background: #161b22;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   cursor: none !important;
-  font-family: -apple-system;
+  color: var(--color-text);
 }
 
 a {
   text-decoration: none;
-  color: #000000;
 }
 
 input {
-  border: 1px solid #000000;
+  border: 1px solid var(--color-border);
   border-radius: 5px;
+  background: var(--color-background);
 }
 
 button {
-  cursor: pointer;
   border: none;
   background: none;
 }
 
+.w-md-editor-toolbar,
+.w-md-editor-preview,
+.w-md-editor-text,
+.wmde-markdown {
+  background: var(--color-background) !important;
+}
 .w-md-editor-toolbar {
   padding: 0 48px !important;
   border-bottom: none !important;
@@ -31,5 +58,5 @@ button {
 }
 .w-md-editor-preview {
   padding: 48px !important;
-  box-shadow: inset 1px 0 0 0 #e5e5e5 !important;
+  box-shadow: inset 1px 0 0 0 var(--color-border) !important;
 }
