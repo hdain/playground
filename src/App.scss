@@ -1,23 +1,31 @@
-[data-color-mode="light"] {
-  --color-text: #000000;
-  --color-border: #e5e5e5;
-  --color-background: #ffffff;
-  --color-background-muted: #e5e5e5;
-  --color-button-text: #ffffff;
-  --color-button-background: #000000;
-  --color-tag-text: #000000;
-  --color-tag-background: #e5e5e5;
-}
+$black: #000000;
+$dark-gray: #21262d;
+$light-gray: #e5e5e5;
+$white: #ffffff;
+$highlight: #00ee00;
 
+[data-color-mode="light"] {
+  --color-text: #{$black};
+  --color-border: #{$light-gray};
+  --color-background: #{$white};
+  --color-background-muted: #{$light-gray};
+  --color-button-text: #{$white};
+  --color-button-background: #{$black};
+  --color-tag-text: #{$black};
+  --color-tag-background: #{$light-gray};
+  --color-highlight: #{$highlight};
+}
+// 161b22
 [data-color-mode="dark"] {
-  --color-text: #ececec;
-  --color-border: #21262d;
-  --color-background: #000000;
-  --color-background-muted: #21262d;
-  --color-button-text: #000000;
-  --color-button-background: #ffffff;
-  --color-tag-text: #ffffff;
-  --color-tag-background: #161b22;
+  --color-text: #{$light-gray};
+  --color-border: #{$dark-gray};
+  --color-background: #{$black};
+  --color-background-muted: #{$dark-gray};
+  --color-button-text: #{$black};
+  --color-button-background: #{$white};
+  --color-tag-text: #{$white};
+  --color-tag-background: #{$dark-gray};
+  --color-highlight: #{$highlight};
 }
 
 * {

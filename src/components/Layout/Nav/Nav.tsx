@@ -31,11 +31,7 @@ const Nav = () => {
           <NavItem label={item.label} href={item.href} key={item.label} />
         ))}
 
-        {user ? (
-          <button onClick={handleLogout}>Logout</button>
-        ) : (
-          <NavItem label="Login" href="/login" />
-        )}
+        {user && <button onClick={handleLogout}>Logout</button>}
       </ul>
     </nav>
   );
