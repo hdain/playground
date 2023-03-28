@@ -10,7 +10,7 @@ export type Post = {
   timestamp: number;
 };
 
-export const usePost = (timestamp: number) => {
+const usePost = (timestamp: number) => {
   const [isLoading, setIsLoading] = useState(false);
   const [post, setPost] = useState<Post>();
   const [key, setKey] = useState<String | null>(null);
@@ -44,3 +44,5 @@ export const usePost = (timestamp: number) => {
 
   return { isLoading, post, key };
 };
+
+export default usePost;

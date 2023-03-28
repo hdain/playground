@@ -3,7 +3,7 @@ import { get, orderByKey, query, ref } from "firebase/database";
 import { database } from "../firebase";
 import { Post } from "./usePost";
 
-export type PostList = {
+type PostList = {
   [id: string]: Post;
 };
 
@@ -36,3 +36,5 @@ export const usePostList = () => {
 
   return { isLoading, postList };
 };
+
+export default usePostList;

@@ -5,7 +5,7 @@ type MousePosition = {
   y: number;
 };
 
-export const useMousePosition = () => {
+const useMousePosition = () => {
   const [mousePosition, setMousePosition] = useState<MousePosition>({
     x: 0,
     y: 0,
@@ -25,3 +25,5 @@ export const useMousePosition = () => {
 
   return mousePosition;
 };
+
+export default useMousePosition;
