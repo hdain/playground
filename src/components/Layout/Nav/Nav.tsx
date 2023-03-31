@@ -1,10 +1,13 @@
+import { useContext } from "react";
+
+import { signOut } from "firebase/auth";
+
+import { AuthContext } from "../../../contexts";
+import { auth } from "../../../firebase";
+import { NavItem } from "../NavItem";
+
 import styles from "./Nav.module.scss";
 import classNames from "classnames/bind";
-import { NavItem } from "../NavItem";
-import { useContext } from "react";
-import { AuthContext } from "../../../contexts";
-import { signOut } from "firebase/auth";
-import { auth } from "../../../firebase";
 
 const cx = classNames.bind(styles);
 

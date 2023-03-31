@@ -1,12 +1,15 @@
-import styles from "./Edit.module.scss";
-import classNames from "classnames/bind";
+import { useCallback } from "react";
 import { useParams } from "react-router-dom";
+
 import { child, ref, update } from "firebase/database";
+
+import { Editor } from "../../components";
 import { database } from "../../firebase";
 import { Post, usePost } from "../../hooks";
-import { Editor } from "../../components";
-import { useCallback } from "react";
 import { slugify } from "../../utils";
+
+import styles from "./Edit.module.scss";
+import classNames from "classnames/bind";
 
 const cx = classNames.bind(styles);
 

@@ -1,11 +1,12 @@
-import styles from "./Layout.module.scss";
-import classNames from "classnames/bind";
-
-import { Outlet } from "react-router-dom";
-import { Header } from "./Header";
 import { useContext } from "react";
+import { Outlet } from "react-router-dom";
+
+import { Header } from "./Header";
 import { AuthContext } from "../../contexts";
 import { Cursor } from "../Cursor";
+
+import styles from "./Layout.module.scss";
+import classNames from "classnames/bind";
 
 const cx = classNames.bind(styles);
 

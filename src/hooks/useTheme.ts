@@ -1,6 +1,7 @@
 import { useCallback, useEffect } from "react";
-import useMediaQuery from "./useMediaQuery";
+
 import useLocalStorage from "./useLocalStorage";
+import useMediaQuery from "./useMediaQuery";
 
 type Theme = "light" | "dark";
 type ToggleTheme = (e: React.MouseEvent<HTMLButtonElement>) => void;

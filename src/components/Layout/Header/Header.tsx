@@ -1,8 +1,10 @@
+import { Link } from "react-router-dom";
+
+import { ThemeToggle } from "../../ThemeToggle";
 import { Nav } from "../Nav";
+
 import styles from "./Header.module.scss";
 import classNames from "classnames/bind";
-import { ThemeToggle } from "../../ThemeToggle";
-import { Link } from "react-router-dom";
 
 const cx = classNames.bind(styles);
 

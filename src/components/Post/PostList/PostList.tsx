@@ -1,9 +1,11 @@
 import { Fragment } from "react";
+import { Link } from "react-router-dom";
+
+import { usePostList } from "../../../hooks";
+import { PostPreview } from "../PostPreview";
+
 import styles from "./PostList.module.scss";
 import classNames from "classnames/bind";
-import { Link } from "react-router-dom";
-import { PostPreview } from "../PostPreview";
-import { usePostList } from "../../../hooks";
 
 const cx = classNames.bind(styles);
 

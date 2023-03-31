@@ -1,8 +1,9 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.scss";
-import { Home, Login, Post, Write, Edit } from "./pages";
+
 import { Layout, PostDetail } from "./components";
+import { Home, Login, Post, Write, Edit } from "./pages";
 import { ProtectedRoute } from "./routes";
 
 const App = () => (

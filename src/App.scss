@@ -15,7 +15,7 @@ $highlight: #00ee00;
   --color-tag-background: #{$light-gray};
   --color-highlight: #{$highlight};
 }
-// 161b22
+
 [data-color-mode="dark"] {
   --color-text: #{$light-gray};
   --color-border: #{$dark-gray};
@@ -34,7 +34,6 @@ $highlight: #00ee00;
   box-sizing: border-box;
   cursor: none !important;
   color: var(--color-text);
-  font-family: "Satoshi", sans-serif;
 }
 
 a {
@@ -68,4 +67,8 @@ button {
 .w-md-editor-preview {
   padding: 48px !important;
   box-shadow: inset 1px 0 0 0 var(--color-border) !important;
+}
+.wmde-markdown tt,
+.wmde-markdown code {
+  font-family: "Fira Code", monospace !important;
 }
