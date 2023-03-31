@@ -1,14 +1,16 @@
-import { useEffect, useReducer, useRef } from "react";
+import { useCallback, useEffect, useReducer, useRef } from "react";
+import { useNavigate } from "react-router-dom";
+
+import { ContextStore } from "@uiw/react-md-editor/src/Context";
+
+import { ButtonGroup } from "./ButtonGroup";
+import { MdEditor } from "./MdEditor";
+import { TagGroup } from "./TagGroup";
+import { TitleInput } from "./TitleInput";
+import { Post } from "../../hooks";
+
 import styles from "./Editor.module.scss";
 import classNames from "classnames/bind";
-import { useCallback } from "react";
-import { useNavigate } from "react-router-dom";
-import { Post } from "../../hooks";
-import { TitleInput } from "./TitleInput";
-import { ButtonGroup } from "./ButtonGroup";
-import { TagGroup } from "./TagGroup";
-import { MdEditor } from "./MdEditor";
-import { ContextStore } from "@uiw/react-md-editor/src/Context";
 
 const cx = classNames.bind(styles);
 

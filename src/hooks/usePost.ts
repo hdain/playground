@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
+
 import { child, get, ref } from "firebase/database";
+
 import { database } from "../firebase";
 
 export type Post = {

@@ -1,6 +1,7 @@
+import { useMousePosition } from "../../hooks";
+
 import styles from "./Cursor.module.scss";
 import classNames from "classnames/bind";
-import { useMousePosition } from "../../hooks";
 
 const cx = classNames.bind(styles);
 

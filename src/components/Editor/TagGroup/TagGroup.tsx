@@ -1,7 +1,8 @@
-import styles from "./TagGroup.module.scss";
-import classNames from "classnames/bind";
 import { TagList, TagListProps } from "../../TagList";
 import { TagInput, TagInputProps } from "../TagInput";
+
+import styles from "./TagGroup.module.scss";
+import classNames from "classnames/bind";
 
 const cx = classNames.bind(styles);
 

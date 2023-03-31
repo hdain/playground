@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
+
 import { get, orderByKey, query, ref } from "firebase/database";
-import { database } from "../firebase";
+
 import { Post } from "./usePost";
+import { database } from "../firebase";
 
 type PostList = {
   [id: string]: Post;
