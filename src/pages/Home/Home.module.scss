@@ -1,3 +1,56 @@
 .home {
-  padding: 20px;
+  position: relative;
+  font-family: "Satoshi", sans-serif;
+
+  strong {
+    font-size: 36px;
+    line-height: 1.5;
+  }
+
+  .tag1 {
+    position: absolute;
+    left: -50px;
+    top: 50%;
+    width: 100px;
+    height: 30px;
+    background: var(--color-highlight);
+    color: var(--color-text);
+    font-size: 18px;
+    transform: rotate(-30deg);
+  }
+
+  .circle-area {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    max-width: 250px;
+    width: 100%;
+    background: url("../../../public/assets/images/me02.png") no-repeat center
+      center;
+    background-size: 61%;
+    transition: all 0.3s;
+
+    &:hover {
+      background-image: url("../../../public/assets/images/me03.png");
+    }
+
+    svg {
+      fill: currentColor;
+      height: auto;
+      width: 100%;
+      font-size: 5px;
+      letter-spacing: 2px;
+      transform-origin: center;
+      animation: rotate 10s infinite linear;
+    }
+
+    @keyframes rotate {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  }
 }
