@@ -1,8 +1,4 @@
-$black: #000000;
-$dark-gray: #21262d;
-$light-gray: #e5e5e5;
-$white: #ffffff;
-$highlight: #00ee00;
+@import "./styles/variables";
 
 [data-color-mode="light"] {
   --color-text: #{$black};
