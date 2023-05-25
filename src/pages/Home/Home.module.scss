@@ -1,22 +1,38 @@
+@import "../../styles/mixin";
+@import "../../styles/variables";
+
 .home {
   position: relative;
   font-family: "Satoshi", sans-serif;
 
   strong {
-    font-size: 36px;
+    font-size: 48px;
     line-height: 1.5;
+
+    @include mobile {
+      font-size: 36px;
+    }
   }
 
-  .tag1 {
+  .tag {
     position: absolute;
-    left: -50px;
+    left: 10px;
     top: 50%;
-    width: 100px;
+    width: fit-content;
     height: 30px;
+    padding: 0 7px;
     background: var(--color-highlight);
-    color: var(--color-text);
+    color: #{$black};
     font-size: 18px;
     transform: rotate(-30deg);
+
+    @include tablet {
+      left: 20px;
+    }
+
+    @include mobile {
+      left: 30px;
+    }
   }
 
   .circle-area {
@@ -29,6 +45,7 @@
       center;
     background-size: 61%;
     transition: all 0.3s;
+    overflow: hidden;
 
     &:hover {
       background-image: url("../../../public/assets/images/me03.png");
