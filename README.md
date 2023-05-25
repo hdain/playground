@@ -18,7 +18,7 @@ preparing...
 Installing
 1. Clone this repository
 ```
-git clone https://github.com/dain9812/playground.git
+git clone https://github.com/hdain/playground.git
 ```
 2. Install dependencies
 ```
@@ -52,8 +52,6 @@ yarn start
    }
 }
 ```
-### Deployment
-The website can be deployed using platforms such as Firebase Hosting, Netlify, or GitHub Pages.
 
 ### License
 This project is licensed under the MIT License.
