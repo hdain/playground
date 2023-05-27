@@ -1,5 +1,5 @@
-import { TagList, TagListProps } from "../../TagList";
 import { TagInput, TagInputProps } from "../TagInput";
+import { TagList, TagListProps } from "../TagList";
 
 import styles from "./TagGroup.module.scss";
 import classNames from "classnames/bind";

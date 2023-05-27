@@ -1,9 +1,9 @@
 import { useContext } from "react";
 import { Outlet } from "react-router-dom";
 
-import { AuthContext } from "../../contexts";
-import { Cursor } from "../Cursor";
+import { Cursor } from "./Cursor";
 import { Header } from "./Header";
+import { AuthContext } from "../../contexts";
 
 import styles from "./Layout.module.scss";
 import classNames from "classnames/bind";

@@ -1,4 +1,4 @@
-import { Post } from "../../hooks";
+import { Post } from "../../../hooks";
 
 import styles from "./TagList.module.scss";
 import classNames from "classnames/bind";

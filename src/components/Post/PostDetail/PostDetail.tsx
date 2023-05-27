@@ -8,7 +8,7 @@ import { AuthContext } from "../../../contexts";
 import { database } from "../../../firebase";
 import { usePost } from "../../../hooks";
 import { dateFormat } from "../../../utils";
-import { TagList } from "../../TagList";
+import { TagList } from "../../Editor";
 
 import styles from "./PostDetail.module.scss";
 import classNames from "classnames/bind";
