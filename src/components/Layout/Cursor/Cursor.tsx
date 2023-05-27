@@ -1,4 +1,4 @@
-import { useMousePosition } from "../../hooks";
+import { useMousePosition } from "../../../hooks";
 
 import styles from "./Cursor.module.scss";
 import classNames from "classnames/bind";

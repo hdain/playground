@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
-import { ThemeToggle } from "../../ThemeToggle";
 import { Nav } from "../Nav";
+import { ThemeToggle } from "../ThemeToggle";
 
 import styles from "./Header.module.scss";
 import classNames from "classnames/bind";

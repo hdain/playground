@@ -1,4 +1,4 @@
-import { useTheme } from "../../hooks";
+import { useTheme } from "../../../hooks";
 
 import styles from "./ThemeToggle.module.scss";
 import classNames from "classnames/bind";

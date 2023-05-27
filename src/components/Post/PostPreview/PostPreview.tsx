@@ -1,10 +1,9 @@
 import { Post } from "../../../hooks";
 import { dateFormat } from "../../../utils";
-import { TagList } from "../../TagList";
+import { TagList } from "../../Editor";
 
 import styles from "./PostPreview.module.scss";
 import classNames from "classnames/bind";
-
 
 const removeMd = require("remove-markdown");
 

@@ -1,9 +1,9 @@
 import { useContext } from "react";
 import { Outlet } from "react-router-dom";
 
+import { Cursor } from "./Cursor";
 import { Header } from "./Header";
 import { AuthContext } from "../../contexts";
-import { Cursor } from "../Cursor";
 
 import styles from "./Layout.module.scss";
 import classNames from "classnames/bind";
@@ -19,14 +19,14 @@ const Layout = () => {
         // TODO: loding UI ?
         ""
       ) : (
-        <>
+        <div>
           <Cursor />
           <Header />
 
           <div className={cx("contents")}>
             <Outlet />
           </div>
-        </>
+        </div>
       )}
     </>
   );
