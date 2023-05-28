@@ -11,3 +11,17 @@
     @content;
   }
 }
+
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+@mixin animation($name) {
+  animation: ease 0.7s $name forwards;
+}
