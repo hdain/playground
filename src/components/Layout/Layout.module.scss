@@ -8,8 +8,6 @@
   background: var(--color-background);
 
   > * {
-    width: 768px;
-
     @include tablet {
       width: 630px;
       padding: 0 16px;
@@ -19,5 +17,7 @@
       width: 100%;
       padding: 0 16px;
     }
+
+    width: 768px;
   }
 }

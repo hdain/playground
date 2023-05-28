@@ -6,15 +6,23 @@
   font-family: "Satoshi", sans-serif;
 
   strong {
-    font-size: 48px;
-    line-height: 1.5;
-
     @include mobile {
       font-size: 36px;
     }
+
+    font-size: 48px;
+    line-height: 1.5;
   }
 
   .tag {
+    @include tablet {
+      left: 20px;
+    }
+
+    @include mobile {
+      left: 30px;
+    }
+
     position: absolute;
     left: 10px;
     top: 50%;
@@ -25,14 +33,6 @@
     color: #{$black};
     font-size: 18px;
     transform: rotate(-30deg);
-
-    @include tablet {
-      left: 20px;
-    }
-
-    @include mobile {
-      left: 30px;
-    }
   }
 
   .circle-area {
