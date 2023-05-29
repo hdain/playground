@@ -3,14 +3,26 @@ import classNames from "classnames/bind";
 
 const cx = classNames.bind(styles);
 
-const Hamburger = () => (
-  <div className={cx("hamburger")}>
-    <div className={cx("bars")}>
-      <span className={cx("bar")}></span>
-      <span className={cx("bar")}></span>
-      <span className={cx("bar")}></span>
-    </div>
-  </div>
-);
+type HamburgerProps = {
+  isActive: boolean;
+  onClick: () => void;
+};
+
+const Hamburger = (props: HamburgerProps) => {
+  const { isActive, onClick } = props;
+
+  return (
+    <button
+      className={cx("hamburger", { active: isActive }, { unactive: !isActive })}
+      onClick={onClick}
+    >
+      <div className={cx("bars")}>
+        <span className={cx("bar")}></span>
+        <span className={cx("bar")}></span>
+        <span className={cx("bar")}></span>
+      </div>
+    </button>
+  );
+};
 
 export default Hamburger;
