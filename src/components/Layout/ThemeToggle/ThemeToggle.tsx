@@ -9,7 +9,9 @@ const ThemeToggle = () => {
   const [theme, toggleTheme] = useTheme();
 
   return (
-    <button onClick={toggleTheme}>{theme === "light" ? "🌝" : "🌞"}</button>
+    <button className={cx("theme-toggle")} onClick={toggleTheme}>
+      {theme === "light" ? "🌝" : "🌞"}
+    </button>
   );
 };
 
