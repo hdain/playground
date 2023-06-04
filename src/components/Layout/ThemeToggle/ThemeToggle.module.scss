@@ -1,4 +1,11 @@
+@import "../../../styles/mixin";
+
 .theme-toggle {
+  @include media(mobile, tablet) {
+    height: 55px;
+    padding: 0 20px;
+  }
+
   font-size: 23px;
   padding-right: 10px;
   outline: none;

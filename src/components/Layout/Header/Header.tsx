@@ -23,9 +23,11 @@ const Header = () => {
         <Link to="/">
           <h1>多IN</h1>
         </Link>
-        <div>
-          <ThemeToggle />
-          <Nav />
+        <div className={cx("menu", { active: isBurgerActive })}>
+          <div>
+            <ThemeToggle />
+            <Nav />
+          </div>
         </div>
         <Hamburger isActive={isBurgerActive} onClick={handleBurgerClick} />
       </div>

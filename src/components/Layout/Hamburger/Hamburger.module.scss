@@ -1,6 +1,10 @@
 @import "../../../styles/mixin";
 
 .hamburger {
+  @include desktop {
+    display: none;
+  }
+
   cursor: pointer;
   width: 21px;
   height: 18px;
