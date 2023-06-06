@@ -38,6 +38,7 @@
         height: 100vh;
         background: var(--color-background);
         opacity: 0;
+        visibility: hidden;
 
         > div {
           flex-direction: column-reverse;
@@ -50,6 +51,7 @@
 
         &.active {
           opacity: 1;
+          visibility: visible;
         }
       }
 
