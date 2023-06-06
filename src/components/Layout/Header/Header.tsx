@@ -26,7 +26,7 @@ const Header = () => {
         <div className={cx("menu", { active: isBurgerActive })}>
           <div>
             <ThemeToggle />
-            <Nav />
+            <Nav onClick={handleBurgerClick} />
           </div>
         </div>
         <Hamburger isActive={isBurgerActive} onClick={handleBurgerClick} />

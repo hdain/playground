@@ -8,13 +8,14 @@ const cx = classNames.bind(styles);
 type NavItemProps = {
   label: string;
   href: string;
+  onClick: () => void;
 };
 
 const NavItem = (props: NavItemProps) => {
-  const { label, href } = props;
+  const { label, href, onClick } = props;
 
   return (
-    <li key={label} className={cx("nav-item")}>
+    <li key={label} className={cx("nav-item")} onClick={onClick}>
       <NavLink to={href} className={({ isActive }) => cx({ active: isActive })}>
         {label}
       </NavLink>

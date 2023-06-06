@@ -11,12 +11,17 @@ import classNames from "classnames/bind";
 
 const cx = classNames.bind(styles);
 
+type NavProps = {
+  onClick: () => void;
+};
+
 const Items = [
   { label: "Home", href: "/" },
   { label: "Post", href: "/post" },
 ];
 
-const Nav = () => {
+const Nav = (props: NavProps) => {
+  const { onClick } = props;
   const { user } = useContext(AuthContext);
 
   const handleLogout = async () => {
@@ -31,9 +36,13 @@ const Nav = () => {
     <nav className={cx("nav")}>
       <ul>
         {Items.map((item) => (
-          <NavItem label={item.label} href={item.href} key={item.label} />
+          <NavItem
+            label={item.label}
+            href={item.href}
+            key={item.label}
+            onClick={onClick}
+          />
         ))}
-
         {user && <button onClick={handleLogout}>Logout</button>}
       </ul>
     </nav>
