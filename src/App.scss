@@ -14,6 +14,7 @@
   --color-button-background: #{$black};
   --color-tag-text: #{$black};
   --color-tag-background: #{$light-gray};
+  --color-bar: #{$black};
 }
 
 [data-color-mode="dark"] {
@@ -25,6 +26,7 @@
   --color-button-background: #{$white};
   --color-tag-text: #{$white};
   --color-tag-background: #{$dark-gray};
+  --color-bar: #{white};
 }
 
 * {

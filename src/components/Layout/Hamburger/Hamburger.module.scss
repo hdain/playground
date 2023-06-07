@@ -21,7 +21,7 @@
       width: 100%;
       border-radius: 3px;
       height: 2px;
-      background: #fff;
+      background: var(--color-bar);
       transition: all 0.3s;
 
       + .bar {
