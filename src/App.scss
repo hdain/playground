@@ -1,5 +1,10 @@
 @import "./styles/variables";
 
+:root {
+  --color-highlight: #{$highlight};
+  --color-highlight-text: #{$black};
+}
+
 [data-color-mode="light"] {
   --color-text: #{$black};
   --color-border: #{$light-gray};
@@ -9,7 +14,6 @@
   --color-button-background: #{$black};
   --color-tag-text: #{$black};
   --color-tag-background: #{$light-gray};
-  --color-highlight: #{$highlight};
 }
 
 [data-color-mode="dark"] {
@@ -21,7 +25,6 @@
   --color-button-background: #{$white};
   --color-tag-text: #{$white};
   --color-tag-background: #{$dark-gray};
-  --color-highlight: #{$highlight};
 }
 
 * {
