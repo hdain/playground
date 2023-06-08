@@ -17,6 +17,7 @@ type NavProps = {
 
 const Items = [
   { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
   { label: "Post", href: "/post" },
 ];
 
