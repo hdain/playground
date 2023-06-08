@@ -21,7 +21,7 @@ const Header = () => {
     <header className={cx("header")}>
       <div className={cx("inner")}>
         <Link to="/">
-          <h1>多IN</h1>
+          <h1>hdain.dev</h1>
         </Link>
         <div className={cx("menu", { active: isBurgerActive })}>
           <div>
