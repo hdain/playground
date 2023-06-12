@@ -3,6 +3,9 @@
 :root {
   --color-highlight: #{$highlight};
   --color-highlight-text: #{$black};
+  --font-default: #{$font-default};
+  --font-apple: #{$font-apple};
+  --font-fira: #{$font-fira};
 }
 
 [data-color-mode="light"] {
@@ -34,7 +37,6 @@
   padding: 0;
   box-sizing: border-box;
   cursor: none !important;
-  color: var(--color-text);
 }
 
 h3 {
@@ -43,6 +45,7 @@ h3 {
 
 a {
   text-decoration: none;
+  color: var(--color-text);
 }
 
 input {
@@ -75,5 +78,5 @@ button {
 }
 .wmde-markdown tt,
 .wmde-markdown code {
-  font-family: "Fira Code", monospace !important;
+  font-family: var(--font-fira) !important;
 }

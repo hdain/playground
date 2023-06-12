@@ -3,7 +3,6 @@
 
 .home {
   position: relative;
-  font-family: "Satoshi", sans-serif;
 
   h1 {
     @include mobile {
@@ -11,7 +10,6 @@
     }
 
     font-size: 36px;
-    line-height: 1.5;
     padding-bottom: 30px;
   }
 
