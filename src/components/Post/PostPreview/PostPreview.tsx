@@ -19,7 +19,7 @@ const PostPreview = (props: PostPreviewProps) => {
       <small>{dateFormat(timestamp)}</small>
       <h3>{title}</h3>
       <p>{removeMd(contents)}</p>
-      <TagList tags={tags} />
+      <TagList tags={tags} isLink />
     </article>
   );
 };

@@ -44,7 +44,7 @@ const PostDetail = () => {
         <article className={cx("post-detail")}>
           <div className={cx("head")}>
             <h1>{post.title}</h1>
-            <TagList tags={post.tags} />
+            <TagList tags={post.tags} isLink />
             <div>
               <span>{dateFormat(post.timestamp)}</span>
               {user && (
