@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import { Post } from "../../../hooks";
 
@@ -20,9 +20,9 @@ const TagList = (props: TagListProps) => {
     return (
       <div className={cx("tag-list")}>
         {uniqueTags?.map((tag) => (
-          <Link key={tag} to={`/tag/${tag}`}>
+          <NavLink key={tag} to={`/tag/${tag}`}>
             {tag}
-          </Link>
+          </NavLink>
         ))}
       </div>
     );
