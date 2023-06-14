@@ -22,13 +22,7 @@ const PostList = () => {
         .reverse()
         .map((key) => {
           const post = postList[key];
-          return (
-            <Fragment key={key}>
-              <Link to={`/post/${post.slug}`} state={post.timestamp}>
-                <PostPreview {...post} />
-              </Link>
-            </Fragment>
-          );
+          return <PostPreview {...post} key={key} />;
         })}
     </div>
   );
