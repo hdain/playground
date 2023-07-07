@@ -1,6 +1,10 @@
 @import "../../../styles/mixin";
 
 .cursor {
+  @include mobile {
+    display: none;
+  }
+
   position: fixed;
   top: 0;
   left: 0;
@@ -9,8 +13,4 @@
   border-radius: 50%;
   background: var(--color-text);
   z-index: 100;
-
-  @include mobile {
-    display: none;
-  }
 }

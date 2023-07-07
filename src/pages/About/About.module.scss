@@ -1,0 +1,20 @@
+.about {
+  .head {
+    margin-bottom: 30px;
+  }
+
+  .contents {
+    padding: 30px 0;
+    border-top: 1px solid var(--color-border);
+
+    p {
+      padding-bottom: 20px;
+    }
+  }
+
+  .links {
+    .github {
+      color: var(--color-text);
+    }
+  }
+}

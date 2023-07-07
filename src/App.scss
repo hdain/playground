@@ -1,5 +1,10 @@
 @import "./styles/variables";
 
+:root {
+  --color-highlight: #{$highlight};
+  --color-highlight-text: #{$black};
+}
+
 [data-color-mode="light"] {
   --color-text: #{$black};
   --color-border: #{$light-gray};
@@ -9,7 +14,7 @@
   --color-button-background: #{$black};
   --color-tag-text: #{$black};
   --color-tag-background: #{$light-gray};
-  --color-highlight: #{$highlight};
+  --color-bar: #{$black};
 }
 
 [data-color-mode="dark"] {
@@ -21,7 +26,7 @@
   --color-button-background: #{$white};
   --color-tag-text: #{$white};
   --color-tag-background: #{$dark-gray};
-  --color-highlight: #{$highlight};
+  --color-bar: #{white};
 }
 
 * {
@@ -30,6 +35,10 @@
   box-sizing: border-box;
   cursor: none !important;
   color: var(--color-text);
+}
+
+h3 {
+  font-size: 24px;
 }
 
 a {

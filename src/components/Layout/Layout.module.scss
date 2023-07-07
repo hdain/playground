@@ -6,12 +6,10 @@
   justify-content: center;
   min-height: 100vh;
   background: var(--color-background);
+  line-height: 1.75;
 
   > * {
-    width: 768px;
-
     @include tablet {
-      width: 630px;
       padding: 0 16px;
     }
 
@@ -19,5 +17,12 @@
       width: 100%;
       padding: 0 16px;
     }
+
+    width: 680px;
+  }
+
+  ::selection {
+    background: var(--color-highlight);
+    color: var(--color-highlight-text);
   }
 }

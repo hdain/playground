@@ -5,27 +5,17 @@
   position: relative;
   font-family: "Satoshi", sans-serif;
 
-  strong {
-    font-size: 48px;
-    line-height: 1.5;
-
+  h1 {
     @include mobile {
-      font-size: 36px;
+      font-size: 24px;
     }
+
+    font-size: 36px;
+    line-height: 1.5;
+    padding-bottom: 30px;
   }
 
   .tag {
-    position: absolute;
-    left: 10px;
-    top: 50%;
-    width: fit-content;
-    height: 30px;
-    padding: 0 7px;
-    background: var(--color-highlight);
-    color: #{$black};
-    font-size: 18px;
-    transform: rotate(-30deg);
-
     @include tablet {
       left: 20px;
     }
@@ -33,6 +23,17 @@
     @include mobile {
       left: 30px;
     }
+
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    width: fit-content;
+    height: 30px;
+    padding: 3px 7px 0;
+    background: var(--color-highlight);
+    color: #{$black};
+    font-size: 16px;
+    transform: rotate(-30deg);
   }
 
   .circle-area {
@@ -56,7 +57,7 @@
       height: auto;
       width: 100%;
       font-size: 5px;
-      letter-spacing: 2px;
+      letter-spacing: 0.9px;
       transform-origin: center;
       animation: rotate 10s infinite linear;
     }

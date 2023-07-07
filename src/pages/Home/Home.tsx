@@ -6,10 +6,15 @@ const cx = classNames.bind(styles);
 const Home = () => {
   return (
     <div className={cx("home")}>
-      <strong>
+      <h1>
         Hi, I'm Dain,
         <br />A Front-End Developer.
-      </strong>
+      </h1>
+      <p>
+        Welcome to my playground. This is my personal blog where I share what
+        I'm learning about web technologies, becoming a better developer and
+        growing a career in tech.
+      </p>
       <span className={cx("tag")}>@daaaa__in</span>
       <div className={cx("circle-area")}>
         <svg viewBox="0 0 100 100" width="100" height="100">
