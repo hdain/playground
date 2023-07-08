@@ -9,10 +9,9 @@
   justify-content: center;
   z-index: 10;
   background: var(--color-background);
-  font-family: "Satoshi", sans-serif;
 
   .inner {
-    @include mobile {
+    @include media(mobile, tablet) {
       max-width: 100%;
       padding: 16px;
 

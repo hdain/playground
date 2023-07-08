@@ -1,5 +1,5 @@
 import { useCallback, useContext } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, NavLink } from "react-router-dom";
 
 import MDEditor from "@uiw/react-md-editor";
 import { child, ref, remove } from "firebase/database";
@@ -44,14 +44,12 @@ const PostDetail = () => {
         <article className={cx("post-detail")}>
           <div className={cx("head")}>
             <h1>{post.title}</h1>
-            <TagList tags={post.tags} />
+            <TagList tags={post.tags} isLink />
             <div>
               <span>{dateFormat(post.timestamp)}</span>
               {user && (
                 <div className={cx("button-wrap")}>
-                  <button onClick={() => navigate(`/edit/${state}`)}>
-                    Edit
-                  </button>
+                  <NavLink to={`/edit/${state}`}>Edit</NavLink>
                   <button onClick={handleDelete}>Delete</button>
                 </div>
               )}

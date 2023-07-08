@@ -13,6 +13,14 @@
   }
 
   .links {
+    a {
+      transition: all 0.3s;
+
+      &:hover {
+        color: var(--color-highlight);
+      }
+    }
+
     .github {
       color: var(--color-text);
     }

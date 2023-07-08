@@ -1,7 +1,8 @@
 .tag-list {
   display: flex;
 
-  span {
+  span,
+  a {
     padding: 5px 15px;
     background: var(--color-tag-background);
     color: var(--color-text);

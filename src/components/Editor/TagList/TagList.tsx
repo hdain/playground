@@ -1,3 +1,5 @@
+import { NavLink } from "react-router-dom";
+
 import { Post } from "../../../hooks";
 
 import styles from "./TagList.module.scss";
@@ -7,11 +9,24 @@ const cx = classNames.bind(styles);
 
 export type TagListProps = Pick<Post, "tags"> & {
   onClick?: (tag: React.MouseEvent<HTMLSpanElement>) => void;
+  isLink?: boolean;
 };
 
 const TagList = (props: TagListProps) => {
-  const { tags, onClick } = props;
+  const { tags, onClick, isLink } = props;
   const uniqueTags = [...new Set(tags)];
+
+  if (isLink) {
+    return (
+      <div className={cx("tag-list")}>
+        {uniqueTags?.map((tag) => (
+          <NavLink key={tag} to={`/tag/${tag}`}>
+            {tag}
+          </NavLink>
+        ))}
+      </div>
+    );
+  }
 
   return (
     <div className={cx("tag-list")}>
