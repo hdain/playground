@@ -5,7 +5,9 @@ This is a personal blog and portfolio project built with React and Firebase.
 ---
 
 ### Demo
-preparing...
+<a href="https://hdain.dev">
+ 🔗 hdain.dev
+</a>
 
 ### Technologies Used
 - Yarn
