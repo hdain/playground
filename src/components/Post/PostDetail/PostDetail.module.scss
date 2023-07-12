@@ -28,10 +28,7 @@
       .button-wrap {
         button {
           font-size: 16px;
-
-          + button {
-            margin-left: 10px;
-          }
+          margin-left: 10px;
         }
       }
     }
