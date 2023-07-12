@@ -1,4 +1,4 @@
-import { useCallback, useContext } from "react";
+import { useCallback, useContext, useEffect } from "react";
 import { useLocation, useNavigate, NavLink } from "react-router-dom";
 
 import MDEditor from "@uiw/react-md-editor";
@@ -21,6 +21,10 @@ const PostDetail = () => {
   const { user } = useContext(AuthContext);
   const { state } = useLocation();
   const { isLoading, post, key } = usePost(state);
+
+  useEffect(() => {
+    document.title = post?.title + " | " + process.env.REACT_APP_TITLE;
+  }, [post]);
 
   const handleDelete = useCallback(async () => {
     try {
