@@ -2,7 +2,10 @@
 
 .cursor {
   @include mobile {
-    display: none;
+    @media (hover: none) {
+      pointer-events: none;
+      display: none;
+    }
   }
 
   position: fixed;
