@@ -15,7 +15,7 @@ const Post = () => {
   return (
     <div className={cx("post")}>
       <div className={cx("head")}>
-        <h3>Post</h3>
+        <h1>Post</h1>
         {user && <NavLink to={"/write"}>Write</NavLink>}
       </div>
       <PostList />
