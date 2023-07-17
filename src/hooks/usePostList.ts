@@ -22,13 +22,12 @@ export const usePostList = () => {
         if (snapshot.exists()) {
           const data = snapshot.val();
           setPostList(data);
-          setIsLoading(false);
         } else {
           console.log("No data available");
-          setIsLoading(false);
         }
       } catch (e) {
         console.error(e);
+      } finally {
         setIsLoading(false);
       }
     };

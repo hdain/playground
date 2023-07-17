@@ -30,13 +30,12 @@ const usePost = (timestamp: number) => {
               setKey(data.key);
             }
           });
-          setIsLoading(false);
         } else {
           console.log("No data available");
-          setIsLoading(false);
         }
       } catch (e) {
         console.error(e);
+      } finally {
         setIsLoading(false);
       }
     };
