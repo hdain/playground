@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 
 import { Post } from "../../../hooks";
+import { slugify } from "../../../utils";
 
 import styles from "./TagList.module.scss";
 import classNames from "classnames/bind";
@@ -20,7 +21,7 @@ const TagList = (props: TagListProps) => {
     return (
       <div className={cx("tag-list")}>
         {uniqueTags?.map((tag) => (
-          <NavLink key={tag} to={`/tag/${tag}`}>
+          <NavLink key={tag} to={`/tag/${slugify(tag)}`} state={tag}>
             {tag}
           </NavLink>
         ))}
