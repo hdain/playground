@@ -4,7 +4,7 @@ import "./App.scss";
 
 import { Layout, PostDetail } from "./components";
 import { logEvent, analytics } from "./firebase";
-import { Home, Login, Post, Write, Edit, About } from "./pages";
+import { Home, Login, Post, Write, Edit, About, Tag } from "./pages";
 import { ProtectedRoute } from "./routes";
 
 const App = () => {
@@ -29,6 +29,7 @@ const App = () => {
         <Route path="about" element={<About />} />
         <Route path="post" element={<Post />} />
         <Route path="post/:slug" element={<PostDetail />} />
+        <Route path="tag/:slug" element={<Tag />} />
         <Route
           path="write"
           element={
