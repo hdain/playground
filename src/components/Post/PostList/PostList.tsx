@@ -9,8 +9,13 @@ import classNames from "classnames/bind";
 
 const cx = classNames.bind(styles);
 
-const PostList = () => {
-  const { isLoading, postList } = usePostList();
+type PostListProps = {
+  tag?: string;
+};
+
+const PostList = (props: PostListProps) => {
+  const { tag } = props;
+  const { isLoading, postList } = usePostList(tag ?? "");
 
   if (isLoading) {
     return <div>Loading...</div>;

@@ -9,7 +9,7 @@ type PostList = {
   [id: string]: Post;
 };
 
-export const usePostList = () => {
+export const usePostList = (tag?: string) => {
   const [isLoading, setIsLoading] = useState(false);
   const [postList, setPostList] = useState<PostList>({});
 
@@ -21,6 +21,20 @@ export const usePostList = () => {
         const snapshot = await get(query(ref(database, "posts"), orderByKey()));
         if (snapshot.exists()) {
           const data = snapshot.val();
+
+          if (tag) {
+            const filteredTag = Object.keys(data).filter((key) =>
+              data[key].tags.includes(tag)
+            );
+            const filteredData = filteredTag.reduce(
+              (acc, key) => ({ ...acc, [key]: data[key] }),
+              {}
+            );
+            setPostList(filteredData);
+
+            return;
+          }
+
           setPostList(data);
         } else {
           console.log("No data available");
@@ -33,7 +47,7 @@ export const usePostList = () => {
     };
 
     getPostList?.();
-  }, []);
+  }, [tag]);
 
   return { isLoading, postList };
 };
