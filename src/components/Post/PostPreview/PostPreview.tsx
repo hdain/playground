@@ -23,7 +23,7 @@ const PostPreview = (props: PostPreviewProps) => {
         <h3>{title}</h3>
         <p>{removeMd(contents)}</p>
       </NavLink>
-      <TagList tags={tags} />
+      <TagList tags={tags} isLink />
     </article>
   );
 };
