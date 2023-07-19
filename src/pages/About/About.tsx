@@ -7,7 +7,7 @@ const About = () => {
   return (
     <div className={cx("about")}>
       <div className={cx("head")}>
-        <h3>About</h3>
+        <h1>About</h1>
       </div>
       <div className={cx("contents")}>
         <p>Hello there, I'm Dain Ham. 👋</p>
