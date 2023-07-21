@@ -4,7 +4,7 @@ import "./App.scss";
 
 import { Layout, PostDetail } from "./components";
 import { logEvent, analytics } from "./firebase";
-import { Home, Login, Post, Write, Edit, About, Tag } from "./pages";
+import { Home, Login, Post, Write, Edit, About, Tag, NotFound } from "./pages";
 import { ProtectedRoute } from "./routes";
 
 const App = () => {
@@ -46,6 +46,7 @@ const App = () => {
             </ProtectedRoute>
           }
         />
+        <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
   );
