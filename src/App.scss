@@ -1,6 +1,7 @@
 @import "./styles/variables";
 
 :root {
+  --color-cursor: #{$white};
   --color-highlight: #{$highlight};
   --color-highlight-text: #{$black};
   --font-default: #{$font-default};
@@ -29,7 +30,7 @@
   --color-button-background: #{$white};
   --color-tag-text: #{$white};
   --color-tag-background: #{$dark-gray};
-  --color-bar: #{white};
+  --color-bar: #{$white};
 }
 
 * {
