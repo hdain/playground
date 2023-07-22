@@ -1,11 +1,9 @@
 @import "../../../styles/mixin";
 
 .cursor {
-  @include mobile {
-    @media (hover: none) {
-      pointer-events: none;
-      display: none;
-    }
+  @media (hover: none) {
+    pointer-events: none;
+    display: none;
   }
 
   position: fixed;
@@ -16,4 +14,5 @@
   border-radius: 50%;
   background: var(--color-text);
   z-index: 100;
+  mix-blend-mode: difference;
 }
