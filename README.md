@@ -58,7 +58,7 @@ yarn start
 }
 ```
 ### Deployment
-To deploy the project, install Firebase CLI and run `yarn build`.
+To deploy the project, install Firebase CLI and run `yarn deploy`.
 
 ### License
 This project is licensed under the MIT License.
