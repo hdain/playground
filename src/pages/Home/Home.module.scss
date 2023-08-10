@@ -40,14 +40,13 @@
     right: 0;
     max-width: 250px;
     width: 100%;
-    background: url("../../../public/assets/images/me02.png") no-repeat center
-      center;
+    background: url("../../assets/images/me02.png") no-repeat center center;
     background-size: 61%;
     transition: all 0.3s;
     overflow: hidden;
 
     &:hover {
-      background-image: url("../../../public/assets/images/me03.png");
+      background-image: url("../../assets/images/me03.png");
     }
 
     svg {
