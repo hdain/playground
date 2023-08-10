@@ -57,10 +57,10 @@
       font-size: 5px;
       letter-spacing: 0.9px;
       transform-origin: center;
-      animation: rotate 10s infinite linear;
+      @include animation(rotate, 10s, infinite, linear);
     }
 
-    @keyframes rotate {
+    @include keyframes(rotate) {
       from {
         transform: rotate(0deg);
       }
