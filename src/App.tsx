@@ -6,6 +6,7 @@ import { Layout, PostDetail } from "./components";
 import { logEvent, analytics } from "./firebase";
 import { Home, Login, Post, Write, Edit, About, Tag, NotFound } from "./pages";
 import { ProtectedRoute } from "./routes";
+import { setMetadata } from "./utils";
 
 const App = () => {
   const { pathname } = useLocation();
@@ -15,6 +16,21 @@ const App = () => {
     const postTitle = "Post | " + process.env.REACT_APP_TITLE;
 
     document.title = pathname === "/post" ? postTitle : defaultTitle;
+
+    setMetadata([
+      {
+        property: "og:title",
+        content: defaultTitle,
+      },
+      {
+        property: "og:description",
+        content: process.env.REACT_APP_DESCRIPTION as string,
+      },
+      {
+        property: "og:type",
+        content: process.env.REACT_APP_TYPE as string,
+      },
+    ]);
 
     logEvent(analytics, "page_view", {
       page_path: pathname,
