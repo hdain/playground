@@ -1,9 +1,17 @@
+import { useEffect } from "react";
+
+import { defaultData, setMetadata } from "../../utils";
+
 import styles from "./Home.module.scss";
 import classNames from "classnames/bind";
 
 const cx = classNames.bind(styles);
 
 const Home = () => {
+  useEffect(() => {
+    setMetadata(defaultData);
+  }, []);
+
   return (
     <div className={cx("home")}>
       <h1>

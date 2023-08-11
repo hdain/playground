@@ -23,9 +23,11 @@ const PostDetail = () => {
   const { isLoading, post, key } = usePost(state);
 
   useEffect(() => {
-    document.title = post?.title + " | " + process.env.REACT_APP_TITLE;
-
     setMetadata([
+      {
+        property: "title",
+        content: `${post?.title} | ${process.env.REACT_APP_TITLE}`,
+      },
       {
         property: "og:title",
         content: post?.title || "",
