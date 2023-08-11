@@ -6,10 +6,10 @@
 
   h1 {
     @include mobile {
-      font-size: 24px;
+      font-size: var(--text-h1-size-small);
     }
 
-    font-size: 36px;
+    font-size: var(--text-h1-size-medium);
     padding-bottom: 30px;
   }
 
@@ -30,7 +30,6 @@
     padding: 3px 7px 0;
     background: var(--color-highlight);
     color: #{$black};
-    font-size: 16px;
     transform: rotate(-30deg);
   }
 
@@ -53,7 +52,7 @@
       fill: currentColor;
       height: auto;
       width: 100%;
-      font-size: 5px;
+      font-size: var(--text-home-svg-size);
       letter-spacing: 0.9px;
       transform-origin: center;
       @include animation(rotate, 10s, infinite, linear);

@@ -7,6 +7,18 @@
   --font-default: #{$font-default};
   --font-apple: #{$font-apple};
   --font-fira: #{$font-fira};
+  --text-size-default: #{$text-size-default};
+  --text-h1-size-small: #{$text-size-xlarge};
+  --text-h1-size-medium: #{$text-size-2xlarge};
+  --text-h1-size-large: #{$text-size-3xlarge};
+  --text-h3-size: #{$text-size-xlarge};
+  --text-input-size-small: #{$text-size-large};
+  --text-input-size-medium: #{$text-size-xlarge};
+  --text-input-size-large: #{$text-size-2xlarge};
+  --text-tag-size: #{$text-size-small};
+  --text-home-svg-size: #{$text-size-svg};
+  --text-404-strong-size: #{$text-size-8xlarge};
+  --text-404-btn-size: #{$text-size-medium};
 }
 
 [data-color-mode="light"] {
@@ -41,7 +53,7 @@
 }
 
 h1 {
-  font-size: 24px;
+  font-size: var(--text-h1-size-small);
 }
 
 a {
@@ -59,6 +71,7 @@ button {
   border: none;
   background: none;
   color: var(--color-text);
+  font-size: var(--text-size-default);
 }
 
 .w-md-editor-toolbar,
@@ -67,6 +80,8 @@ button {
 .wmde-markdown {
   background: var(--color-background) !important;
   line-height: 1.75 !important;
+  font-family: var(--font-apple) !important;
+  color: var(--color-text) !important;
 }
 .w-md-editor-toolbar {
   padding: 0 48px !important;
