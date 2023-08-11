@@ -10,10 +10,10 @@
   .head {
     h1 {
       @include mobile {
-        font-size: 36px;
+        font-size: var(--text-h1-size-medium);
       }
 
-      font-size: 48px;
+      font-size: var(--text-h1-size-large);
       padding-bottom: 10px;
     }
 
@@ -27,7 +27,6 @@
 
       .button-wrap {
         button {
-          font-size: 16px;
           margin-left: 10px;
         }
       }

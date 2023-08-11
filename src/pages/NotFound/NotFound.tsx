@@ -1,4 +1,7 @@
+import { useEffect } from "react";
 import { NavLink } from "react-router-dom";
+
+import { setMetadata } from "../../utils";
 
 import styles from "./NotFound.module.scss";
 import classNames from "classnames/bind";
@@ -6,6 +9,15 @@ import classNames from "classnames/bind";
 const cx = classNames.bind(styles);
 
 const NotFound = () => {
+  useEffect(() => {
+    setMetadata([
+      {
+        property: "title",
+        content: `404 Not Found | ${process.env.REACT_APP_TITLE}`,
+      },
+    ]);
+  }, []);
+
   return (
     <div className={cx("not-found")}>
       <strong>💣</strong>

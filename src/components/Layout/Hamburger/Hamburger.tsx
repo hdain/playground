@@ -15,12 +15,13 @@ const Hamburger = (props: HamburgerProps) => {
     <button
       className={cx("hamburger", { active: isActive }, { unactive: !isActive })}
       onClick={onClick}
+      aria-label="Hamburger"
     >
-      <div className={cx("bars")}>
+      <span className={cx("bars")}>
         <span className={cx("bar")}></span>
         <span className={cx("bar")}></span>
         <span className={cx("bar")}></span>
-      </div>
+      </span>
     </button>
   );
 };

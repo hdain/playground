@@ -11,11 +11,6 @@ const App = () => {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    const defaultTitle = process.env.REACT_APP_TITLE as string;
-    const postTitle = "Post | " + process.env.REACT_APP_TITLE;
-
-    document.title = pathname === "/post" ? postTitle : defaultTitle;
-
     logEvent(analytics, "page_view", {
       page_path: pathname,
     });

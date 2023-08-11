@@ -1,7 +1,7 @@
 .tag-input {
   input {
     border: none;
-    font-size: 20px;
+    font-size: var(--text-input-size-small);
     padding: 10px 0;
     outline: none;
   }

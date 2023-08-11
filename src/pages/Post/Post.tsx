@@ -1,8 +1,9 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 
 import { PostList } from "../../components";
 import { AuthContext } from "../../contexts";
+import { setMetadata } from "../../utils";
 
 import styles from "./Post.module.scss";
 import classNames from "classnames/bind";
@@ -11,6 +12,12 @@ const cx = classNames.bind(styles);
 
 const Post = () => {
   const { user } = useContext(AuthContext);
+
+  useEffect(() => {
+    setMetadata([
+      { property: "title", content: `Post | ${process.env.REACT_APP_TITLE}` },
+    ]);
+  }, []);
 
   return (
     <div className={cx("post")}>

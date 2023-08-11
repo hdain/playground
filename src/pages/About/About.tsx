@@ -1,9 +1,19 @@
+import { useEffect } from "react";
+
+import { setMetadata } from "../../utils";
+
 import styles from "./About.module.scss";
 import classNames from "classnames/bind";
 
 const cx = classNames.bind(styles);
 
 const About = () => {
+  useEffect(() => {
+    setMetadata([
+      { property: "title", content: `About | ${process.env.REACT_APP_TITLE}` },
+    ]);
+  }, []);
+
   return (
     <div className={cx("about")}>
       <div className={cx("head")}>

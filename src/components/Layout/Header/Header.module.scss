@@ -15,7 +15,7 @@
       max-width: 100%;
       padding: 16px;
 
-      h1 {
+      strong {
         display: none;
       }
     }
@@ -60,8 +60,8 @@
       }
     }
 
-    h1 {
-      font-size: 16px;
+    strong {
+      font-family: var(--font-default);
     }
   }
 }

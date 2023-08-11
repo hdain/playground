@@ -7,7 +7,7 @@ import { child, ref, remove } from "firebase/database";
 import { AuthContext } from "../../../contexts";
 import { database } from "../../../firebase";
 import { usePost } from "../../../hooks";
-import { dateFormat } from "../../../utils";
+import { dateFormat, setMetadata } from "../../../utils";
 import { TagList } from "../../Editor";
 
 import styles from "./PostDetail.module.scss";
@@ -23,7 +23,24 @@ const PostDetail = () => {
   const { isLoading, post, key } = usePost(state);
 
   useEffect(() => {
-    document.title = post?.title + " | " + process.env.REACT_APP_TITLE;
+    setMetadata([
+      {
+        property: "title",
+        content: `${post?.title} | ${process.env.REACT_APP_TITLE}`,
+      },
+      {
+        property: "og:title",
+        content: post?.title || "",
+      },
+      {
+        property: "og:description",
+        content: post?.contents.slice(0, 100).concat("...") || "",
+      },
+      {
+        property: "og:type",
+        content: "article",
+      },
+    ]);
   }, [post]);
 
   const handleDelete = useCallback(async () => {
