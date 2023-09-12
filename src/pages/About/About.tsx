@@ -39,6 +39,7 @@ const About = () => {
           className={cx("github")}
           href="https://github.com/hdain"
           target="_blank"
+          aria-label="hdain's github"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

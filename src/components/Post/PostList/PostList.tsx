@@ -1,6 +1,3 @@
-import { Fragment } from "react";
-import { Link } from "react-router-dom";
-
 import { usePostList } from "../../../hooks";
 import { PostPreview } from "../PostPreview";
 
