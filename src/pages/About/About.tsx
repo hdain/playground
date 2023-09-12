@@ -10,7 +10,10 @@ const cx = classNames.bind(styles);
 const About = () => {
   useEffect(() => {
     setMetadata([
-      { property: "title", content: `About | ${process.env.REACT_APP_TITLE}` },
+      {
+        property: "title",
+        content: `About | ${import.meta.env.VITE_APP_TITLE}`,
+      },
     ]);
   }, []);
 
