@@ -26,7 +26,7 @@ const PostDetail = () => {
     setMetadata([
       {
         property: "title",
-        content: `${post?.title} | ${process.env.REACT_APP_TITLE}`,
+        content: `${post?.title} | ${import.meta.env.VITE_APP_TITLE}`,
       },
       {
         property: "og:title",

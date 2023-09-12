@@ -13,7 +13,7 @@ const NotFound = () => {
     setMetadata([
       {
         property: "title",
-        content: `404 Not Found | ${process.env.REACT_APP_TITLE}`,
+        content: `404 Not Found | ${import.meta.env.VITE_APP_TITLE}`,
       },
     ]);
   }, []);
