@@ -26,20 +26,20 @@ yarn install
 ```
 3. Create a [Firebase](https://firebase.google.com/?hl=ko) project and enable Realtime database, Authentication, Hosting and Analyitics.
 4. Create a `.env` file in the root directory of the project with your Firebase project credentials. Your `.env` file should look like this:
-
-```text
-REACT_APP_FIREBASE_API_KEY=your-api-key
-REACT_APP_FIREBASE_AUTH_DOMAIN=your-auth-domain
-REACT_APP_FIREBASE_DATABASE_URL=your-database-url
-REACT_APP_FIREBASE_PROJECT_ID=your-project-id
-REACT_APP_FIREBASE_STORAGE_BUCKET=your-storage-bucket
-REACT_APP_FIREBASE_MESSAGING_SENDER_ID=your-messaging-sender-id
-REACT_APP_FIREBASE_APP_ID=your-app-id
-REACT_APP_FIREBASE_MEASUREMENT_ID=your-measurement-id
+```
+VITE_FIREBASE_API_KEY=your-api-key
+VITE_FIREBASE_AUTH_DOMAIN=your-auth-domain
+VITE_FIREBASE_DATABASE_URL=your-database-url
+VITE_FIREBASE_PROJECT_ID=your-project-id
+VITE_FIREBASE_STORAGE_BUCKET=your-storage-bucket
+VITE_FIREBASE_MESSAGING_SENDER_ID=your-messaging-sender-id
+VITE_FIREBASE_APP_ID=your-app-id
 ```
 5. Add your app title to `.env`
 ```
-REACT_APP_TITLE='Ham Dain'
+VITE_APP_TITLE='Ham Dain'
+VITE_APP_DESCRIPTION='Personal developer blog'
+VITE_APP_TYPE=website
 ``` 
 6. Start the development server
 ```
@@ -62,4 +62,3 @@ To deploy the project, install Firebase CLI and run `yarn deploy`.
 
 ### License
 This project is licensed under the MIT License.
-

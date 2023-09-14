@@ -20,7 +20,7 @@ const PostPreview = (props: PostPreviewProps) => {
     <article className={cx("post-preview")}>
       <NavLink to={`/post/${slug}`} state={timestamp}>
         <small>{dateFormat(timestamp)}</small>
-        <h3>{title}</h3>
+        <strong>{title}</strong>
         <p>{removeMd(contents)}</p>
       </NavLink>
       <TagList tags={tags} isLink />

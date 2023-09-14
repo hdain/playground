@@ -1,19 +1,19 @@
 export const defaultData = [
   {
     property: "title",
-    content: process.env.REACT_APP_TITLE as string,
+    content: import.meta.env.VITE_APP_TITLE as string,
   },
   {
     property: "og:title",
-    content: process.env.REACT_APP_TITLE as string,
+    content: import.meta.env.VITE_APP_TITLE as string,
   },
   {
     property: "og:description",
-    content: process.env.REACT_APP_DESCRIPTION as string,
+    content: import.meta.env.VITE_APP_DESCRIPTION as string,
   },
   {
     property: "og:type",
-    content: process.env.REACT_APP_TYPE as string,
+    content: import.meta.env.VITE_APP_TYPE as string,
   },
 ];
 

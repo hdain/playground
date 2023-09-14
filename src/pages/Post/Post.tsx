@@ -15,7 +15,10 @@ const Post = () => {
 
   useEffect(() => {
     setMetadata([
-      { property: "title", content: `Post | ${process.env.REACT_APP_TITLE}` },
+      {
+        property: "title",
+        content: `Post | ${import.meta.env.VITE_APP_TITLE}`,
+      },
     ]);
   }, []);
 

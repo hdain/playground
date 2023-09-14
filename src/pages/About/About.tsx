@@ -10,7 +10,10 @@ const cx = classNames.bind(styles);
 const About = () => {
   useEffect(() => {
     setMetadata([
-      { property: "title", content: `About | ${process.env.REACT_APP_TITLE}` },
+      {
+        property: "title",
+        content: `About | ${import.meta.env.VITE_APP_TITLE}`,
+      },
     ]);
   }, []);
 
@@ -39,6 +42,7 @@ const About = () => {
           className={cx("github")}
           href="https://github.com/hdain"
           target="_blank"
+          aria-label="hdain's github"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

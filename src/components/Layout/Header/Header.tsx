@@ -20,7 +20,7 @@ const Header = () => {
   return (
     <header className={cx("header")}>
       <div className={cx("inner")}>
-        <Link to="/">
+        <Link to="/" aria-label="hdain.dev">
           <strong>hdain.dev</strong>
         </Link>
         <div className={cx("menu", { active: isBurgerActive })}>
