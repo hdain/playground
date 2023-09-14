@@ -4,11 +4,11 @@ import { useLocation, useNavigate, NavLink } from "react-router-dom";
 import MDEditor from "@uiw/react-md-editor";
 import { child, ref, remove } from "firebase/database";
 
-import { AuthContext } from "../../../contexts";
-import { database } from "../../../firebase";
-import { usePost } from "../../../hooks";
-import { dateFormat, setMetadata } from "../../../utils";
-import { TagList } from "../../Editor";
+import { AuthContext } from "../../contexts";
+import { database } from "../../firebase";
+import { usePost } from "../../hooks";
+import { dateFormat, setMetadata } from "../../utils";
+import { TagList } from "../../components/Editor";
 
 import styles from "./PostDetail.module.scss";
 import classNames from "classnames/bind";
