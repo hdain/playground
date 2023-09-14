@@ -1,1 +1,3 @@
-export { default as Write } from "./Write";
+import Write from "./Write";
+
+export default Write;
