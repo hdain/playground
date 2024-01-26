@@ -1,5 +1,5 @@
 {
-  "plugins": ["import"],
+  "plugins": ["import", "react-hooks"],
   "parser": "@typescript-eslint/parser",
   "settings": {
     "import/resolver": {
@@ -12,6 +12,8 @@
     }
   },
   "rules": {
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
     "import/order": [
       "error",
       {
@@ -19,7 +21,8 @@
           "builtin",
           "external",
           "internal",
-          ["parent", "sibling", "index"]
+          ["parent", "sibling", "index"],
+          "unknown"
         ],
         "pathGroups": [
           {
@@ -28,7 +31,11 @@
             "position": "before"
           },
           {
-            "pattern": "./*.scss",
+            "pattern": "@/components/**",
+            "group": "internal",
+          },
+          {
+            "pattern": "@/styles/**",
             "group": "unknown"
           },
           {

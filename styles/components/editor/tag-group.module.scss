@@ -1,0 +1,13 @@
+@import "../../../styles/mixin";
+
+.tag-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 0 48px;
+  margin-bottom: 10px;
+
+  @include media(mobile, tablet) {
+    padding: 0 16px;
+  }
+}

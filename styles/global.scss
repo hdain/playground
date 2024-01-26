@@ -1,0 +1,139 @@
+@import "../styles/variables";
+@import "../styles/mixin";
+@import "../styles/components/editor/md-editor.module";
+
+:root {
+  --color-cursor: #{$white};
+  --color-highlight: #{$highlight};
+  --color-highlight-text: #{$black};
+  --font-default: #{$font-default};
+  --font-apple: #{$font-apple};
+  --font-fira: #{$font-fira};
+  --text-size-default: #{$text-size-default};
+  --text-h1-size-small: #{$text-size-xlarge};
+  --text-h1-size-medium: #{$text-size-2xlarge};
+  --text-h1-size-large: #{$text-size-3xlarge};
+  --text-h3-size: #{$text-size-xlarge};
+  --text-input-size-default: #{$text-size-small};
+  --text-input-size-small: #{$text-size-large};
+  --text-input-size-medium: #{$text-size-xlarge};
+  --text-input-size-large: #{$text-size-2xlarge};
+  --text-tag-size: #{$text-size-small};
+  --text-home-svg-size: #{$text-size-svg};
+  --text-404-strong-size: #{$text-size-8xlarge};
+  --text-404-btn-size: #{$text-size-medium};
+}
+
+[data-color-mode="light"] {
+  --color-text: #{$black};
+  --color-border: #{$light-gray};
+  --color-background: #{$white};
+  --color-background-muted: #{$light-gray};
+  --color-button-text: #{$white};
+  --color-button-background: #{$black};
+  --color-tag-text: #{$black};
+  --color-tag-background: #{$light-gray};
+  --color-bar: #{$black};
+}
+
+[data-color-mode="dark"] {
+  --color-text: #{$light-gray};
+  --color-border: #{$dark-gray};
+  --color-background: #{$black};
+  --color-background-muted: #{$dark-gray};
+  --color-button-text: #{$black};
+  --color-button-background: #{$white};
+  --color-tag-text: #{$white};
+  --color-tag-background: #{$dark-gray};
+  --color-bar: #{$white};
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  cursor: none !important;
+}
+
+h1 {
+  font-size: var(--text-h1-size-small);
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-text);
+}
+
+input {
+  border: 1px solid var(--color-border);
+  border-radius: 5px;
+  background: var(--color-background);
+}
+
+button {
+  border: none;
+  background: none;
+  color: var(--color-text);
+  font-size: var(--text-size-default);
+}
+
+.contents {
+  padding: 80px 0;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  background: var(--color-background);
+  line-height: 1.75;
+  color: var(--color-text);
+  font-family: var(--font-default);
+
+  > * {
+    @include tablet {
+      padding: 0 16px;
+    }
+
+    @include mobile {
+      width: 100%;
+      padding: 0 16px;
+    }
+
+    width: 680px;
+  }
+
+  ::selection {
+    background: var(--color-highlight);
+    color: var(--color-highlight-text);
+  }
+}
+
+@font-face {
+  font-family: "Fira Code";
+  font-weight: 400;
+  font-style: normal;
+  src: url("../public/fonts/FiraCode-Regular.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  font-weight: 700;
+  font-style: normal;
+  src: url("../public/fonts/Satoshi-Bold.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  font-weight: 400;
+  font-style: normal;
+  src: url("../public/fonts/Satoshi-Regular.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  font-weight: 300;
+  font-style: normal;
+  src: url("../public/fonts/Satoshi-Light.woff2") format("woff2");
+  font-display: swap;
+}

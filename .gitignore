@@ -4,6 +4,10 @@
 ### ignore all files in the build/ directory ###
 build/
 
+### nextjs ###
+.next
+next-env.d.ts
+
 ### firebase ###
 .firebase/
 
@@ -18,7 +22,6 @@ build/
 
 # Icon must end with two \r
 Icon
-
 
 # Thumbnails
 ._*

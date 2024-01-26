@@ -1,0 +1,14 @@
+@import "../../../styles/mixin";
+
+.tag-input {
+  input {
+    border: none;
+    font-size: var(--text-input-size-small);
+    padding: 10px 0;
+    outline: none;
+
+    @include media(mobile, tablet) {
+      font-size: var(--text-input-size-default);
+    }
+  }
+}

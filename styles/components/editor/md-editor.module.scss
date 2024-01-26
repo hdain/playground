@@ -1,0 +1,42 @@
+@import "../../../styles/mixin";
+
+.w-md-editor-toolbar,
+.w-md-editor-preview,
+.w-md-editor-text,
+.wmde-markdown {
+  background: var(--color-background) !important;
+  line-height: 1.75 !important;
+  font-family: var(--font-apple) !important;
+  color: var(--color-text) !important;
+}
+.w-md-editor-content {
+  height: calc(100% - 39.1px) !important;
+}
+.w-md-editor-toolbar {
+  padding: 0 48px !important;
+  border-bottom: none !important;
+
+  @include media(mobile, tablet) {
+    padding: 0 16px !important;
+  }
+}
+.w-md-editor-text {
+  padding: 48px 48px 128px !important;
+
+  @include media(mobile, tablet) {
+    padding: 0 16px !important;
+  }
+}
+.w-md-editor-preview {
+  padding: 48px !important;
+  box-shadow: inset 1px 0 0 0 var(--color-border) !important;
+}
+.wmde-markdown {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+
+  tt,
+  code {
+    font-family: var(--font-fira) !important;
+  }
+}

@@ -1,0 +1,17 @@
+@import "../../../styles/mixin";
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 10px;
+
+  span,
+  a {
+    padding: 5px 15px;
+    background: var(--color-tag-background);
+    color: var(--color-text);
+    margin-right: 8px;
+    border-radius: 30px;
+    font-size: var(--text-tag-size);
+  }
+}
